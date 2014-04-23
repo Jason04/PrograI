@@ -33,8 +33,6 @@
 %type <num> Termino
 %type <num> Expresion
 %type <num> DeclaracionAsignacion
-
-
 %start Programa
 
 %%

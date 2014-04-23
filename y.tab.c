@@ -529,11 +529,11 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    42,    42,    46,    47,    49,    50,    52,    52,    55,
-      55,    57,    58,    59,    62,    69,    72,    73,    76,    77,
-      80,    81,    82,    83,    86,    87,    90,    91,    92,    95,
-      96,   100,   101,   104,   105,   108,   110,   112,   114,   116,
-     117,   118,   119,   120,   121,   122
+       0,    40,    40,    44,    45,    47,    48,    50,    50,    53,
+      53,    55,    56,    57,    60,    67,    70,    71,    74,    75,
+      78,    79,    80,    81,    84,    85,    88,    89,    90,    93,
+      94,    98,    99,   102,   103,   106,   108,   110,   112,   114,
+     115,   116,   117,   118,   119,   120
 };
 #endif
 
@@ -1490,43 +1490,43 @@ yyreduce:
     {
         case 5:
 /* Line 1787 of yacc.c  */
-#line 49 "token.y"
+#line 47 "token.y"
     {setAlcance((yyvsp[(2) - (3)].stringVal),alcance);}
     break;
 
   case 7:
 /* Line 1787 of yacc.c  */
-#line 52 "token.y"
+#line 50 "token.y"
     {alcance="i";}
     break;
 
   case 8:
 /* Line 1787 of yacc.c  */
-#line 53 "token.y"
+#line 51 "token.y"
     {alcance="o";}
     break;
 
   case 11:
 /* Line 1787 of yacc.c  */
-#line 57 "token.y"
+#line 55 "token.y"
     {printf("el valor de la expresion: %d para el ID: %s\n",(yyvsp[(3) - (4)].num),(yyvsp[(1) - (4)].stringVal));}
     break;
 
   case 12:
 /* Line 1787 of yacc.c  */
-#line 58 "token.y"
+#line 56 "token.y"
     {printf("el valor de la expresion: %d para el ID: %s\n",(yyvsp[(3) - (3)].num),(yyvsp[(1) - (3)].stringVal));}
     break;
 
   case 13:
 /* Line 1787 of yacc.c  */
-#line 59 "token.y"
+#line 57 "token.y"
     {;}
     break;
 
   case 14:
 /* Line 1787 of yacc.c  */
-#line 62 "token.y"
+#line 60 "token.y"
     {
                                 if(strcmp((yyvsp[(2) - (3)].stringVal),">=") == 0){(yyval.num)=(yyvsp[(1) - (3)].num)>=(yyvsp[(3) - (3)].num);};
                                 if(strcmp((yyvsp[(2) - (3)].stringVal),"==") == 0){(yyval.num)=(yyvsp[(1) - (3)].num)==(yyvsp[(3) - (3)].num);};
@@ -1538,61 +1538,61 @@ yyreduce:
 
   case 15:
 /* Line 1787 of yacc.c  */
-#line 69 "token.y"
+#line 67 "token.y"
     {(yyval.num)=(yyvsp[(1) - (1)].num);}
     break;
 
   case 16:
 /* Line 1787 of yacc.c  */
-#line 72 "token.y"
+#line 70 "token.y"
     {(yyval.num)=(yyvsp[(1) - (3)].num)+(yyvsp[(3) - (3)].num);}
     break;
 
   case 17:
 /* Line 1787 of yacc.c  */
-#line 73 "token.y"
+#line 71 "token.y"
     {(yyval.num)=(yyvsp[(1) - (1)].num);}
     break;
 
   case 18:
 /* Line 1787 of yacc.c  */
-#line 76 "token.y"
+#line 74 "token.y"
     {(yyval.num)=(yyvsp[(1) - (3)].num)*(yyvsp[(3) - (3)].num);}
     break;
 
   case 19:
 /* Line 1787 of yacc.c  */
-#line 77 "token.y"
+#line 75 "token.y"
     {(yyval.num)=(yyvsp[(1) - (1)].num);}
     break;
 
   case 20:
 /* Line 1787 of yacc.c  */
-#line 80 "token.y"
+#line 78 "token.y"
     {(yyval.num)=(yyvsp[(2) - (3)].num);}
     break;
 
   case 21:
 /* Line 1787 of yacc.c  */
-#line 81 "token.y"
+#line 79 "token.y"
     {(yyval.num)=(yyvsp[(1) - (1)].stringVal);}
     break;
 
   case 22:
 /* Line 1787 of yacc.c  */
-#line 82 "token.y"
+#line 80 "token.y"
     {(yyval.num)=(yyvsp[(1) - (1)].num);}
     break;
 
   case 23:
 /* Line 1787 of yacc.c  */
-#line 83 "token.y"
+#line 81 "token.y"
     {;}
     break;
 
   case 38:
 /* Line 1787 of yacc.c  */
-#line 114 "token.y"
+#line 112 "token.y"
     {printf("Hacer analisis semantico\n");}
     break;
 
@@ -1830,7 +1830,7 @@ yyreturn:
 
 
 /* Line 2050 of yacc.c  */
-#line 127 "token.y"
+#line 125 "token.y"
 
 void yyerror(char *t){
   printf("Error sintactico en linea %d,Texto Encontrado %s\n",yylineno,yytext);   
