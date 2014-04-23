@@ -1,9 +1,8 @@
 %{
 
 #include "y.tab.h"
-
+extern char *alcance; 
 extern yylineno; //numero de linea 
-
 void errorLexico(char *s,int linenumber);
 
 %}
@@ -11,7 +10,7 @@ void errorLexico(char *s,int linenumber);
 
 letra           [a-zA-Z]
 
-digito	        [0-9]
+digito	        [0-9]   
 
 
 %%
@@ -35,13 +34,13 @@ digito	        [0-9]
 "imprimir"								{printf("reservada: %s\n",yytext);return IMPRIMIR;}
 "ir"									{printf("reservada: %s\n",yytext);return IR;}
 "leer"									{printf("reservada: %s\n",yytext);return LEER;}
-({letra}|"_")({letra}|{digito}){0,31} 					{printf("ID: %s\n", yytext);return ID;}
-{digito}{digito}*							{printf("NUM: %s\n", yytext);return NUM;}
+({letra}|"_")({letra}|{digito}){0,31} 					{printf("ID: %s", yytext);yylval.stringVal=strdup(yytext);return ID;}
+{digito}{digito}*							{printf("NUM: %s\n", yytext);yylval.num=atoi(yytext);return NUM;}
 
 \/\*+"*"([^*]|[\t\n]|(\*+([^*/]|[\t\n])))*\*+"*"+\/			{printf("DOCUMENTACION: %s\n", yytext);}
 \/\*([^*]|[\t\n]|(\*+([^*/]|[\t\n])))*\*+\/				{printf("COMENTARIO: %s\n", yytext);};
 "="									{printf("ASIGNACION: %s\n", yytext);return ASIGNACION;}
-"<"|">"|"<="|">="|"=="|"!="						{printf("OPERADORRELACIONAL: %s\n", yytext);return OPERADORRELACIONAL;}
+"<"|">"|"<="|">="|"=="|"!="						{printf("OPERADORRELACIONAL: %s\n", yytext);yylval.stringVal=strdup(yytext);return OPERADORRELACIONAL;}
 [\n]								        {printf("Salto de linea: %s\n",yytext);return FINL;}	
 "+"|"-"									{printf("OPERADORSUMRETS: %s\n", yytext);return OPERADORSUMREST;}
 "*"|"/"									{printf("OPERADORSUMRETS: %s\n", yytext);return OPERADORMULTDIV;}
