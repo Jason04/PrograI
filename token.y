@@ -49,6 +49,7 @@
 %token FUNCION
 %token OPERADORSUMREST
 %token OPERADORMULTDIV
+
 %%
 
 Programa:		       ListaVariables ListaFunciones ListaDeclaraciones

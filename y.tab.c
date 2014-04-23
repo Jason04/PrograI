@@ -336,7 +336,7 @@ typedef struct {
 } YYSTACKDATA;
 /* variables for the parser stack */
 static YYSTACKDATA yystack;
-#line 132 "token.y"
+#line 133 "token.y"
 void yyerror(char *t){
   printf("Error sintactico en linea %d,Texto Encontrado %s\n",yylineno,yytext);   
 }
@@ -549,7 +549,7 @@ yyreduce:
     switch (yyn)
     {
 case 36:
-#line 118 "token.y"
+#line 119 "token.y"
 	{printf("Hacer analisis semantico\n");}
 break;
 #line 555 "y.tab.c"
