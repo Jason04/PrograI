@@ -8,9 +8,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "y.tab.h"
+#include <string.h>
+extern char *alcance="o";
 extern int yyparse();
 extern int yylex();
 extern FILE *yyin;
+extern void setAlcance(char *variable, char *alcance);
 main()
 {
     /*
@@ -32,6 +35,9 @@ main()
       // yylex();
     }  while(!feof(yyin));
     fclose(yyin);
+}
+void setAlcance(char *variable, char *alcance){
+    printf("se declaro un ID: %s con alcance de: %s\n",variable,alcance);
 }
 
 

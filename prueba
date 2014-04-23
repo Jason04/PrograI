@@ -3,34 +3,14 @@ declarar s2
 declarar a
 declarar q
 declarar e
-
-funcion prueba(arg){  
+/**@oscar**/
+declarar nuevo
+declarar nuevo2
+funcion prueba(arg){
+        declarar newNum2 
         declarar newNum
-        newNum = 5*arg
-	retornar newNum
-} 
-
-/*declaracionasignacion*/
-s1=7
-s2=4
-/* declaracionSeleccion*/
-si ( s1 ==  s2 ) entonces{
-s=3
-}sino{
-a=6
+        newNum2 = 5*nue>8
+        retornar newNum
 }
-/* declaracionIteracion*/
-mientras ( 1<3 ) haga{
-e=8
-}
-/* declaracionIteracion or */
-haga {
-a=0}mientras q==2
-/* declaracionEtiqueta*/
-etiqueta algunaetiqueta 
-/* DeclaracionSaltoEtiqueta*/
-ir algunaetiqueta
-/*declaracionImprimir */
-imprimir algo 
-/*declaracionLeerCaracterDePantalla */
-leer algunCaracter
+nuevo2 = 2
+nuevo = newNum2+8
