@@ -42,12 +42,12 @@ main()
     //Imprimer tabla
     printTable(test);
     
-    //obtener valor
-    printf("%d",getElementValue(test,"var1"));
-    
-    //obtener linea
-    printf("%d",getElementLine(test,"var1"));
-    
+//    //obtener valor
+//    printf("%d",getElementValue(test,"var1"));
+//    
+//    //obtener linea
+//    printf("%d",getElementLine(test,"var1"));
+//    
     //obtener atributo
     char atributo =  'A';
     printf("%s",getElementAtrib(test,"var1",atributo));

@@ -130,7 +130,6 @@ char* getElementAtrib(nodeTable* head, char* name, char caso) {
                     break;
 
                 case 'A':
-                    printf("%s","df");
                     return p->alcance;
                     break;
 
