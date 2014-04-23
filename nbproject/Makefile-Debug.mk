@@ -70,11 +70,6 @@ ${OBJECTDIR}/Tabla.o: Tabla.c
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Tabla.o Tabla.c
 
-${OBJECTDIR}/Tabla.o: Tabla.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Tabla.o Tabla.c
-
 ${OBJECTDIR}/lex.yy.o: lex.yy.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
