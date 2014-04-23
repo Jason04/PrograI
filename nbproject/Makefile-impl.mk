@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=PrograI
+PROJECTNAME=PrimerPrograCompi2
 
 # Active Configuration
 DEFAULTCONF=Debug

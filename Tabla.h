@@ -10,7 +10,7 @@
 #include <stdbool.h>
 
 struct nodeTable;
-typedef struct nodeTable _nodeTable;
+typedef struct nodeTable nodeTable;
 
 /**
  * Crear nuevo nodo
@@ -55,7 +55,7 @@ struct nodeTable* addFront(struct nodeTable* head, int line, char* isParameter
  * @param alcance
  * @return 
  */
-int estaDeclarada(_nodeTable* head, char* nombre, char* alcance);
+int estaDeclarada(nodeTable* head, char* nombre, char* alcance);
 
 /**
  * Permite actualizar "es utilizada?"
@@ -65,7 +65,7 @@ int estaDeclarada(_nodeTable* head, char* nombre, char* alcance);
  * @param newData
  */
 
-void updateIsUsed(_nodeTable* head, char* nombre, char* alcance, char* newData);
+void updateIsUsed(nodeTable* head, char* nombre, char* alcance, char* newData);
 
 /**
  * Permite actualizar "el valor de la variable"
@@ -74,14 +74,43 @@ void updateIsUsed(_nodeTable* head, char* nombre, char* alcance, char* newData);
  * @param alcance
  * @param newValue
  */
-void updateValue(_nodeTable* head, char* nombre, char* alcance,int newValue);
+void updateValue(nodeTable* head, char* nombre, char* alcance,int newValue);
 
 /**
  * Permite imprimer la tabla(ver en consola)
  * @param head
  */
-void printTable(_nodeTable* head);
+void printTable(nodeTable* head);
 
+/**
+ * Permite obtener un elemento de la tabla dado el nombre
+ * @param head
+ * @param pos
+ * @return 
+ */
+int getElementValue(struct nodeTable* head, char* name);
+
+/**
+ * Permite obtener la linea
+ * @param head
+ * @param name
+ * @return 
+ */
+int getElementLine(nodeTable* head, char* name);
+
+/**
+ * Devulve el atributo dado el 'caso':
+ *'E'= es parametro           
+ * 'F' = funcion
+ * 'U = es utilizada
+ * 'P' = parametro
+ * 'A' = alcance
+ * @param head
+ * @param name
+ * @param caso
+ * @return 
+ */
+char* getElementAtrib(nodeTable* head, char* name, char caso);
 #ifndef TABLA_H
 #define	TABLA_H
 
