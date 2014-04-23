@@ -13,8 +13,10 @@
 extern char *alcance="o";
 extern int yyparse();
 extern int yylex();
+_nodeTable* current;
 extern FILE *yyin;
-extern void setAlcance(char *variable, char *alcance);
+extern void setVariable(char *variable, char *alcance, int linea);
+extern void setParametro(char *variable, char *alcance, int linea, char* funcion);
 main()
 {
     /*
@@ -29,18 +31,16 @@ main()
     yylex();
     return 0;*/
     //******************************tabla********************
-    
+    /**
     //Crear la tabla
     _nodeTable* test = newNode(1, "no", "var1", "NA", "si", "NA", "i",12);
     
     //insertar en la tabla
     test = addFront(test, 2, "no", "var2", "NA", "si", "NA", "o",23);
         
-    updateIsUsed(test,"var1","i","no");
+    updateIsUsed(test,"var1","i","no");**/
     
-    //Imprimer tabla
-    printTable(test);
-   //*********************************************************
+    
     
     
     
@@ -53,9 +53,21 @@ main()
     }  while(!feof(yyin));
     fclose(yyin);
     
+    //Imprimer tabla
+    printTable(current);
+   //*********************************************************
     
 }
-void setAlcance(char *variable, char *alcance){
+void setVariable(char *variable, char *alcance, int linea){
+    if(current==NULL){
+    current=newNode(linea, "no", variable, "NA", "no", "NA", alcance,12);}
+    else{current=addFront(current,linea, "no", variable, "NA", "no", "NA", alcance,-1);}
+    printf("se declaro un ID: %s con alcance de: %s\n",variable,alcance);
+}
+void setParametro(char *variable, char *alcance, int linea, char* funcion){
+    if(current==NULL){
+    current=newNode(linea, "si", variable, funcion, "si", "NA", alcance,12);}
+    else{current=addFront(current,linea, "si", variable, funcion, "si", "NA", alcance,-1);}
     printf("se declaro un ID: %s con alcance de: %s\n",variable,alcance);
 }
 

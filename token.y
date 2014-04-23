@@ -4,7 +4,8 @@
     extern int yylineno;
     extern yytext;
     extern char *alcance;
-    extern void setAlcance(char *variable, char *alcance);
+    extern void setVariable(char *variable, char *alcance, int linea);
+    extern void setParametro(char *variable, char *alcance, int linea, char* funcion);
     void yyerror(char *s);
     
 %}
@@ -44,10 +45,10 @@ Programa:		       ListaVariables ListaFunciones ListaDeclaraciones
 ListaVariables:	 	        ListaVariables DeclaracionVariable
 				| DeclaracionVariable
 				;
-DeclaracionVariable:		DECLARAR ID FINL {setAlcance($2,alcance);}
+DeclaracionVariable:		DECLARAR ID FINL {setVariable($2,alcance,yylineno);}
 				|FINL
 				; 
-ListaFunciones:                FUNCION ID PARENTESISABIERTO ID PARENTESISCERRADO LLAVEABIERTA {alcance="i";}ListaVariables DeclaracionAsignacion RETORNAR ID FinFuncion
+ListaFunciones:                FUNCION ID PARENTESISABIERTO ID {setParametro($4,alcance,yylineno,$2);}PARENTESISCERRADO LLAVEABIERTA {alcance="i";}ListaVariables DeclaracionAsignacion RETORNAR ID FinFuncion
                                {alcance="o";};
 
 FinFuncion:                    LLAVECERRADA | FINL LLAVECERRADA;    
