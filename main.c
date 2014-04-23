@@ -28,15 +28,27 @@ main()
     //******************************tabla********************
     
     //Crear la tabla
-    _nodeTable* test = newNode(1, "no", "var1", "NA", "si", "NA", "i",12);
+    nodeTable* test = newNode(1, "no", "var1", "NA", "si", "NA", "i",12);
     
     //insertar en la tabla
     test = addFront(test, 2, "no", "var2", "NA", "si", "NA", "o",23);
-        
+    test = addFront(test, 2, "no", "var3", "NA", "si", "NA", "o",23);
+            
     updateIsUsed(test,"var1","i","no");
     
     //Imprimer tabla
     printTable(test);
+    
+    //obtener valor
+    printf("%d",getElementValue(test,"var1"));
+    
+    //obtener linea
+    printf("%d",getElementLine(test,"var1"));
+    
+    //obtener atributo
+    char atributo =  'A';
+    printf("%s",getElementAtrib(test,"var1",atributo));
+    
    //*********************************************************
     
     
