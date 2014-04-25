@@ -13,12 +13,27 @@
 extern char *alcance="o";
 extern int yyparse();
 extern int yylex();
-_nodeTable* current;
+struct nodeTable* current;
 extern FILE *yyin;
+extern int yylineno;
 extern void setVariable(char *variable, char *alcance, int linea);
 extern void setParametro(char *variable, char *alcance, int linea, char* funcion);
+extern void setFuncion(char *variable, char *alcance, int linea, char* funcion);
+extern int buscaValor(char *variable);
+extern void asignarValor(char *variable,char *alcance,int valor);
+extern void setEtiqueta(char *variable, char *alcance, int linea);
+extern void marcarUtilizada(char *variable,char *alcance);
+extern int fueDeclarada(char *variable, char *alcance);
 main()
 {
+    
+//    current = newNode(7,"no","prueba","funcion","no","dedeede","o",-1);
+//    
+//    asignarValor("prueba","o",34);
+//    printTable(current);
+//    char *a= "aaa";
+//    char* aa="aaa";
+//    printf("%d",(strcmp(a, aa) == 0) && 1 == 1);
     /*
     printf("Escriba algo seguido de enter. Digite 'pare' or 'PARE' para terminar.\n");
     printf("\n");*/
@@ -42,7 +57,7 @@ main()
     updateIsUsed(test,"var1","i","no");
     
     //Imprimer tabla
-    printTable(test);
+    printTable(test);**/
     
 //    //obtener valor
 //    printf("%d",getElementValue(test,"var1"));
@@ -51,11 +66,10 @@ main()
 //    printf("%d",getElementLine(test,"var1"));
 //    
     //obtener atributo
-    char atributo =  'A';
-    printf("%s",getElementAtrib(test,"var1",atributo));
+    /**char atributo =  'A';
+    printf("%s",getElementAtrib(test,"var1",atributo));**/
     
    //*********************************************************
-    
     
     
     
@@ -67,22 +81,53 @@ main()
     }  while(!feof(yyin));
     fclose(yyin);
     
-    //Imprimer tabla
+//    //Imprimer tabla
+    
     printTable(current);
    //*********************************************************
     
 }
 void setVariable(char *variable, char *alcance, int linea){
     if(current==NULL){
-    current=newNode(linea, "no", variable, "NA", "no", "NA", alcance,12);}
+        current=newNode(linea, "no", variable, "NA", "no", "NA", alcance,-1);}
     else{current=addFront(current,linea, "no", variable, "NA", "no", "NA", alcance,-1);}
-    printf("se declaro un ID: %s con alcance de: %s\n",variable,alcance);
+    //printTable(current);
+    //printf("se declaro un ID: %s con alcance de: %s en la linea: %d\n",variable,alcance,yylineno);
 }
 void setParametro(char *variable, char *alcance, int linea, char* funcion){
     if(current==NULL){
-    current=newNode(linea, "si", variable, funcion, "si", "NA", alcance,12);}
+    current=newNode(linea, "si", variable, funcion, "si", "NA", alcance,-1);}
     else{current=addFront(current,linea, "si", variable, funcion, "si", "NA", alcance,-1);}
-    printf("se declaro un ID: %s con alcance de: %s\n",variable,alcance);
+    //printTable(current);
+    //printf("se declaro un ID: %s con alcance de: %s\n",variable,alcance);
+}
+void setFuncion(char *variable, char *alcance, int linea, char* funcion){
+    current=addFront(current,linea, "no", funcion, "NA", "no", variable, alcance,-1);
+    //printTable(current);
+    //printf("se declaro un ID: %s con alcance de: %s\n",variable,alcance);
+}
+void setEtiqueta(char *variable, char *alcance, int linea){
+    current=addFront(current,linea, "no", variable, "NA", "no", "NA", alcance,-1);
+    //printTable(current);
+    //printf("se declaro una etiqueta: %s con alcance de: %s\n",variable,alcance);
+}
+int buscaValor(char *variable){
+    //printf("el valor que encontro fue: %d para la variable:%s",getElementValue(current,variable),variable);
+    
+    return getElementValue(current,variable);
+}
+void asignarValor(char *variable,char *alcance,int valor){
+    //printf("la variable es: %s con el valor: %d y el alcance: %s\n",variable,valor,alcance);
+    updateValue(current,variable,alcance,valor);
+    //printTable(current);
+    
+}
+void marcarUtilizada(char *variable,char *alcance){
+    updateIsUsed(current,variable,alcance,"si");
+    //printTable(current);
+}
+int fueDeclarada(char *variable, char *alcance){
+    return estaDeclarada(current,variable,alcance);
 }
 
 

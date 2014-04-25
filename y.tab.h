@@ -56,24 +56,25 @@ extern int yydebug;
      LEER = 265,
      LLAVEABIERTA = 266,
      LLAVECERRADA = 267,
-     PARENTESISABIERTO = 268,
-     PARENTESISCERRADO = 269,
-     TRUE = 270,
-     FALSE = 271,
-     NUM = 272,
-     ID = 273,
-     RETORNAR = 274,
-     MIENTRAS = 275,
-     SINO = 276,
-     HAGA = 277,
-     ENTONCES = 278,
-     SI = 279,
-     DECLARAR = 280,
-     ASIGNACION = 281,
-     OPERADORRELACIONAL = 282,
-     FUNCION = 283,
+     PARENTESISCERRADO = 268,
+     TRUE = 269,
+     FALSE = 270,
+     RETORNAR = 271,
+     MIENTRAS = 272,
+     SINO = 273,
+     HAGA = 274,
+     ENTONCES = 275,
+     SI = 276,
+     DECLARAR = 277,
+     ASIGNACION = 278,
+     PARENTESISABIERTO = 279,
+     FUNCION = 280,
+     NUM = 281,
+     ID = 282,
+     OPERADORRELACIONAL = 283,
      OPERADORSUMREST = 284,
-     OPERADORMULTDIV = 285
+     OPERADORMULTDIV = 285,
+     IFX = 286
    };
 #endif
 /* Tokens.  */
@@ -87,24 +88,25 @@ extern int yydebug;
 #define LEER 265
 #define LLAVEABIERTA 266
 #define LLAVECERRADA 267
-#define PARENTESISABIERTO 268
-#define PARENTESISCERRADO 269
-#define TRUE 270
-#define FALSE 271
-#define NUM 272
-#define ID 273
-#define RETORNAR 274
-#define MIENTRAS 275
-#define SINO 276
-#define HAGA 277
-#define ENTONCES 278
-#define SI 279
-#define DECLARAR 280
-#define ASIGNACION 281
-#define OPERADORRELACIONAL 282
-#define FUNCION 283
+#define PARENTESISCERRADO 268
+#define TRUE 269
+#define FALSE 270
+#define RETORNAR 271
+#define MIENTRAS 272
+#define SINO 273
+#define HAGA 274
+#define ENTONCES 275
+#define SI 276
+#define DECLARAR 277
+#define ASIGNACION 278
+#define PARENTESISABIERTO 279
+#define FUNCION 280
+#define NUM 281
+#define ID 282
+#define OPERADORRELACIONAL 283
 #define OPERADORSUMREST 284
 #define OPERADORMULTDIV 285
+#define IFX 286
 
 
 
@@ -112,7 +114,7 @@ extern int yydebug;
 typedef union YYSTYPE
 {
 /* Line 2053 of yacc.c  */
-#line 14 "token.y"
+#line 20 "token.y"
 
     int num; 
     int id;
@@ -121,7 +123,7 @@ typedef union YYSTYPE
 
 
 /* Line 2053 of yacc.c  */
-#line 125 "y.tab.h"
+#line 127 "y.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

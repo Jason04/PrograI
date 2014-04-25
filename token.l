@@ -4,7 +4,7 @@
 extern char *alcance; 
 extern yylineno; //numero de linea 
 void errorLexico(char *s,int linenumber);
-
+extern int booleano;
 %}
 %option nounput yylineno
 
@@ -12,10 +12,7 @@ letra           [a-zA-Z]
 
 digito	        [0-9]   
 
-
 %%
-
-
 "{"									{printf("llaveabierta: %s\n",yytext);return LLAVEABIERTA;}
 "}"									{printf("llavecerrada: %s\n",yytext);return LLAVECERRADA;}
 "("									{printf("parentesisabierto: %s\n",yytext);return PARENTESISABIERTO;}
@@ -42,8 +39,8 @@ digito	        [0-9]
 "="									{printf("ASIGNACION: %s\n", yytext);return ASIGNACION;}
 "<"|">"|"<="|">="|"=="|"!="						{printf("OPERADORRELACIONAL: %s\n", yytext);yylval.stringVal=strdup(yytext);return OPERADORRELACIONAL;}
 [\n]								        {printf("Salto de linea: %s\n",yytext);return FINL;}	
-"+"|"-"									{printf("OPERADORSUMRETS: %s\n", yytext);return OPERADORSUMREST;}
-"*"|"/"									{printf("OPERADORSUMRETS: %s\n", yytext);return OPERADORMULTDIV;}
+"+"|"-"									{printf("OPERADORSUMRETS: %s\n", yytext);yylval.stringVal=strdup(yytext);return OPERADORSUMREST;}
+"*"|"/"									{printf("OPERADORSUMRETS: %s\n", yytext);yylval.stringVal=strdup(yytext);return OPERADORMULTDIV;}
 [ \t]									;
 .									printf("Error lexico  linea %d,%s\n", yylineno, yytext);
 

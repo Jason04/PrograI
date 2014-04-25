@@ -3,14 +3,18 @@ declarar s2
 declarar a
 declarar q
 declarar e
-/**@oscar**/
-declarar nuevo
-declarar nuevo2
+declarar nuevos
+declarar z
 funcion prueba(arg){
         declarar newNum2 
         declarar newNum
-        newNum2 = 5*nue>8
+        newNum2 = 5>nuevo2
         retornar newNum
 }
-nuevo2 = 2
-nuevo = newNum2+8
+a = +*5
+nuevos = 27/3
+nuevos = (nuevos*9)+2
+si (a>10) entonces z=4 sino popo=8
+nuevo = c
+etiqueta OSCAR
+hola
