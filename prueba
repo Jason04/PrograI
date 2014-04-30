@@ -3,7 +3,7 @@ declarar s2
 declarar a
 declarar q
 declarar e
-/**@oscar**/
+/***/
 declarar nuevo
 declarar nuevo2
 funcion prueba(arg){
