@@ -99,6 +99,74 @@ int getElementValue(nodeTable* head, char* name) {
     }
 
 }
+ void escribirTXT(nodeTable* head) {
+    FILE *ptr_file;
+    int x;
+
+    ptr_file = fopen("Tabla de Simbolos.txt", "w");
+
+    if (!ptr_file)
+        return 1;
+
+    fprintf(ptr_file, "%s\n", "");
+    fprintf(ptr_file, "%s\n", "");
+    fprintf(ptr_file, "%s\n", "");
+    fprintf(ptr_file, "%s\n", "");
+    fprintf(ptr_file, "%s\n", "");
+    fprintf(ptr_file, "%s\n", "                                    __________________________________________________________________________");
+    fprintf(ptr_file, "%s\n", "                                   |*                                   Variables                         |*");
+    fprintf(ptr_file, "%s\n", "                                    * Nombre*     Línea*      ¿Parámetro?*       Función*         ¿Utilizada?");
+
+    nodeTable *p;
+    for (p = head; p != NULL; p = p->next) {
+        if(){
+        fprintf(ptr_file,"%s", "                                     ");
+        fprintf(ptr_file,"%s", p->name);
+        fprintf(ptr_file,"%s", "     ");
+        fprintf(ptr_file,"%d",p->line);
+        fprintf(ptr_file,"%s", "      ");
+        fprintf(ptr_file,"%s",p->isParameter );
+        fprintf(ptr_file,"%s", "       ");
+        fprintf(ptr_file,"%s", p->function);
+        fprintf(ptr_file,"%s", "         ");
+        fprintf(ptr_file,"%s\n", p->isUsed);
+        
+        }}
+    fprintf(ptr_file, "%s\n", "                                   |*                                   Funciones                        |*");
+    fprintf(ptr_file, "%s\n", "                                    * Nombre*        Línea*          Parámetro              ¿Utilizada?*");
+
+     for (p = head; p != NULL; p = p->next) {
+        fprintf(ptr_file,"%s", "                                     ");
+        fprintf(ptr_file,"%s", p->name);
+        fprintf(ptr_file,"%s", "     ");
+        fprintf(ptr_file,"%d",p->line);
+        fprintf(ptr_file,"%s", "      ");
+        fprintf(ptr_file,"%s",p->parameter );
+        fprintf(ptr_file,"%s", "       ");
+        fprintf(ptr_file,"%s\n", p->isUsed);
+        
+    }
+    
+    fprintf(ptr_file, "%s\n", "                                   |*            Etiquetas                        |*");
+    fprintf(ptr_file, "%s\n", "                                    * Nombre*        Línea*           ¿Utilizada?*");
+
+     for (p = head; p != NULL; p = p->next) {
+        fprintf(ptr_file,"%s", "                                     ");
+        fprintf(ptr_file,"%s", p->name);
+        fprintf(ptr_file,"%s", "     ");
+        fprintf(ptr_file,"%d",p->line);
+        fprintf(ptr_file,"%s", "      ");
+        fprintf(ptr_file,"%s",p->parameter );
+        fprintf(ptr_file,"%s", "       ");
+        fprintf(ptr_file,"%s\n", p->isUsed);
+        
+    }
+
+    fclose(ptr_file);
+
+    return 0;
+
+}
 
 
 int getElementLine(nodeTable* head, char* name) {

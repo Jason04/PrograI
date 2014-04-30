@@ -15,8 +15,8 @@ NM=nm
 CCADMIN=CCadmin
 RANLIB=ranlib
 CC=gcc
-CCC=gcc
-CXX=gcc
+CCC=g++
+CXX=g++
 FC=gfortran
 AS=as
 
@@ -60,11 +60,11 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/prograi
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/primerprogracompi2
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/prograi: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/primerprogracompi2: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/prograi ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/primerprogracompi2 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/Tabla.o: Tabla.c 
 	${MKDIR} -p ${OBJECTDIR}
@@ -106,7 +106,7 @@ ${OBJECTDIR}/y.tab.o: y.tab.c
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/prograi
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/primerprogracompi2
 	${RM} lex.yy.c
 	${RM} y.tab.c y.tab.h
 
