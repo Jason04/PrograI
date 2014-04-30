@@ -15,9 +15,11 @@ extern char *alcance = "o";
 extern int yyparse();
 extern int yylex();
 struct nodeTable* current;
+struct nodeS* comentario;
 extern FILE *yyin;
 
 extern void setAlcance(char *variable, char *alcance);
+
 
 
 
@@ -30,52 +32,10 @@ extern void asignarValor(char *variable,char *alcance,int valor);
 extern void setEtiqueta(char *variable, char *alcance);
 extern void marcarUtilizada(char *variable,char *alcance);
 extern int fueDeclarada(char *variable, char *alcance);
-
+extern void setComentario(char *comment);
 main()
 {
 
-  
-
-
-
-    //**********************insertar en la lista******************
-    nodeS* a = newNode1("Comentario");
-    a = addFront1(a, "/**Comentario2");
-    a = addFront1(a, "/@Comentario3");
-    a = addFront1(a, "Comentario4");
-    a = addFront1(a, "Comentario5");
-    a = addFront1(a, "Comentario6");
-    a = addFront1(a, "Comentario7");
-    a = addFront1(a, "Comentario8");
-    a = addFront1(a, "Comentario9");
-    a = addFront1(a, "/*Comentario10?**");
-    a = addFront1(a, "Comentario11");
-    a = addFront1(a, "@**Comentario12");
-
-
-    
-
-
-    //*********************************************************
-
-
-
-
-    //    yyin = fopen("prueba","r");
-    //   
-    //    do{
-    //       yyparse();
-    //      // yylex();
-    //    }  while(!feof(yyin));
-    //    fclose(yyin);
-
-    escribirHTML(a);
-
-
-   //*********************************************************
-    
-    
-    
     yyin = fopen("prueba","r");
    
     do{
@@ -85,32 +45,51 @@ main()
     fclose(yyin);
     
 //    //Imprimer tabla
-    
+    //print(comentario);
     printTable(current);
+    escribirHTML(comentario);
    //*********************************************************
+    
+}
+void setComentario(char *comment){
+   // printf("Soy comentario %s\n",comment);
+    
+     
+    
+    const char *copy = comment;
+    
+    char *copyAux = NULL;
+    
+    copyAux = strdup(copy);
+    
+    
+    
+    if(comentario==NULL){
+        comentario = newNode1(copyAux);}
+    else{comentario = addFront1(comentario, copyAux);}
     
 }
 void setVariable(char *variable, char *alcance){
     if(current==NULL){
         current=newNode(yylineno, "no", variable, "NA", "no", "NA", alcance,-1);}
-    else{current=addFront(current,yylineno, "no", variable, "NA", "no", "NA", alcance,-1);}
+    else{current=addFront(current,yylineno, "no", variable, "NA", "no", "Es variable", alcance,-1);}
     //printTable(current);
     //printf("se declaro un ID: %s con alcance de: %s en la linea: %d\n",variable,alcance,yylineno);
 }
 void setParametro(char *variable, char *alcance,char* funcion){
     if(current==NULL){
     current=newNode(yylineno, "si", variable, funcion, "si", "NA", alcance,-1);}
-    else{current=addFront(current,yylineno, "si", variable, funcion, "si", "NA", alcance,-1);}
+    else{current=addFront(current,yylineno, "si", variable, funcion, "si", "Es variable", alcance,-1);}
     //printTable(current);
     //printf("se declaro un ID: %s con alcance de: %s\n",variable,alcance);
 }
 void setFuncion(char *variable, char *alcance,char* funcion){
-    current=addFront(current,yylineno, "no", funcion, "NA", "no", variable, alcance,-1);
+    current=addFront(current,yylineno, "no", funcion, "NA", "Es funcion", variable, alcance,-1);
     //printTable(current);
     //printf("se declaro un ID: %s con alcance de: %s\n",variable,alcance);
 }
 void setEtiqueta(char *variable, char *alcance){
-    current=addFront(current,yylineno, "no", variable, "NA", "no", "NA", alcance,-1);
+    current=addFront(current,yylineno, "no", variable, "NA", "no", "Es etiqueta", alcance,-1);
     //printTable(current);
     //printf("se declaro una etiqueta: %s con alcance de: %s\n",variable,alcance);
 }

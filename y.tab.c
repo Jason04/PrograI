@@ -1954,5 +1954,5 @@ void erroresSemanticos(char *tipoerror, char *texto){
     printf("Error semantico de tipo %s en linea %d,con el Texto Encontrado %s\n",tipoerror,yylineno,texto);
 }
 void errorSaltoCondicion(char *condicion,char *operador){
-    printf("Error semantico por condicion: %s en el: %s en linea: %d\n",condicion,operador,yylineno);
+    //printf("Error semantico por condicion: %s en el: %s en linea: %d\n",condicion,operador,yylineno);
 }

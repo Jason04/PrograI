@@ -4,6 +4,7 @@
 extern char *alcance; 
 extern yylineno; //numero de linea 
 void errorLexico(char *s,int linenumber);
+extern void setComentario(char *comment);
 %}
 %option nounput yylineno
 
@@ -34,7 +35,7 @@ digito	        [0-9]
 ({letra}|"_")({letra}|{digito}){0,31} 					{yylval.stringVal=strdup(yytext);return ID;}
 {digito}{digito}*							{yylval.num=atoi(yytext);return NUM;}
 
-\/\*+"*"([^*]|[\t\n]|(\*+([^*/]|[\t\n])))*\*+"*"+\/			{printf("DOCUMENTACION: %s\n", yytext);}
+\/\*+"*"([^*]|[\t\n]|(\*+([^*/]|[\t\n])))*\*+"*"+\/			{setComentario(yytext);}
 \/\*([^*]|[\t\n]|(\*+([^*/]|[\t\n])))*\*+\/				{printf("COMENTARIO: %s\n", yytext);};
 "="									{return ASIGNACION;}
 "<"|">"|"<="|">="|"=="|"!="						{yylval.stringVal=strdup(yytext);return OPERADORRELACIONAL;}
