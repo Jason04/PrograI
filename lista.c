@@ -6,7 +6,7 @@ typedef struct nodeS {
 } nodeS;
 
 struct nodeS* newNode1(char* data) {
-    printf(" %s\n", data);
+    
     struct nodeS* node1 = (struct nodeS*) malloc(sizeof (nodeS));
     if (node1 != NULL) {
         node1->data = data;
@@ -27,6 +27,7 @@ struct nodeS* addFront1(struct nodeS* head, char* data) {
 
 void print(nodeS* head) {
     nodeS *p;
+   
     for (p = head; p != NULL; p = p->next) {
         printf("%s\n", p->data);
     }

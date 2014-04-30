@@ -1,0 +1,21 @@
+
+                          ***************************************************************************************************************
+                          *                                                  Tabla                                                      *
+                          *                                            Manejo de Errores                                                *
+                          ***************************************************************************************************************
+                          *  Linea        *Tipo                           *Descripción                    *Texto Encontrado             *
+                          *  28           Error Semantico                  Zero Division                  0                             *
+                          *  27           Error Semantico por Condicion    mientras                       falsa                         *
+                          *  25           Error Semantico                  la variable no existe          z                             *
+                          *  24           Error Semantico                  la etiqueta no existe          osa                           *
+                          *  20           Error Sintactico                 Error Sintactico               )                             *
+                          *  20           Error Sintactico                 Error Sintactico               
+                             *
+                          *  19           Error Lexico                     Error Lexico                   @                             *
+                          *  18           Error Sintactico                 Error Sintactico               *                             *
+                          *  18           Error Semantico                  la variable no existe          nuevos                        *
+                          *  17           Error Semantico                  la variable no existe          nuevos                        *
+                          *  13           Error Sintactico                 Error Sintactico               *                             *
+                          *  5            Error Sintactico                 Error Sintactico               baca                          *
+                          ***************************************************************************************************************
+
