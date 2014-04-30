@@ -114,7 +114,7 @@ extern int yydebug;
 typedef union YYSTYPE
 {
 /* Line 2053 of yacc.c  */
-#line 20 "token.y"
+#line 21 "token.y"
 
     int num; 
     int id;

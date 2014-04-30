@@ -600,8 +600,7 @@ char *yytext;
 extern char *alcance; 
 extern yylineno; //numero de linea 
 void errorLexico(char *s,int linenumber);
-extern int booleano;
-#line 605 "lex.yy.c"
+#line 604 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -786,7 +785,8 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 15 "token.l"
+#line 14 "token.l"
+
 
 #line 792 "lex.yy.c"
 
@@ -884,102 +884,102 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 YY_RULE_SETUP
 #line 16 "token.l"
-{printf("llaveabierta: %s\n",yytext);return LLAVEABIERTA;}
+{return LLAVEABIERTA;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
 #line 17 "token.l"
-{printf("llavecerrada: %s\n",yytext);return LLAVECERRADA;}
+{return LLAVECERRADA;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
 #line 18 "token.l"
-{printf("parentesisabierto: %s\n",yytext);return PARENTESISABIERTO;}
+{return PARENTESISABIERTO;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
 #line 19 "token.l"
-{printf("parentesiscerrado: %s\n",yytext);return PARENTESISCERRADO;}
+{return PARENTESISCERRADO;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 20 "token.l"
-{printf("reservada: %s\n",yytext);return FUNCION;}
+{return FUNCION;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
 #line 21 "token.l"
-{printf("reservada: %s\n",yytext);return RETORNAR;}
+{return RETORNAR;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
 #line 22 "token.l"
-{printf("reservada: %s\n",yytext);return DECLARAR;}
+{return DECLARAR;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
 #line 23 "token.l"
-{printf("reservada: %s\n",yytext);return TRUE;}
+{return TRUE;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
 #line 24 "token.l"
-{printf("reservada: %s\n",yytext);return FALSE;}
+{return FALSE;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
 #line 25 "token.l"
-{printf("reservada: %s\n",yytext);return SI;}
+{return SI;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
 #line 26 "token.l"
-{printf("reservada: %s\n",yytext);return ENTONCES;}
+{return ENTONCES;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
 #line 27 "token.l"
-{printf("reservada: %s\n",yytext);return HAGA;}
+{return HAGA;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
 #line 28 "token.l"
-{printf("reservada: %s\n",yytext);return MIENTRAS;}
+{return MIENTRAS;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
 #line 29 "token.l"
-{printf("reservada: %s\n",yytext);return SINO;}
+{return SINO;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
 #line 30 "token.l"
-{printf("reservada: %s\n",yytext);return ETIQUETA;}
+{return ETIQUETA;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
 #line 31 "token.l"
-{printf("reservada: %s\n",yytext);return IMPRIMIR;}
+{return IMPRIMIR;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
 #line 32 "token.l"
-{printf("reservada: %s\n",yytext);return IR;}
+{return IR;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
 #line 33 "token.l"
-{printf("reservada: %s\n",yytext);return LEER;}
+{return LEER;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
 #line 34 "token.l"
-{printf("ID: %s", yytext);yylval.stringVal=strdup(yytext);return ID;}
+{yylval.stringVal=strdup(yytext);return ID;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
 #line 35 "token.l"
-{printf("NUM: %s\n", yytext);yylval.num=atoi(yytext);return NUM;}
+{yylval.num=atoi(yytext);return NUM;}
 	YY_BREAK
 case 21:
 /* rule 21 can match eol */
@@ -996,28 +996,28 @@ YY_RULE_SETUP
 case 23:
 YY_RULE_SETUP
 #line 39 "token.l"
-{printf("ASIGNACION: %s\n", yytext);return ASIGNACION;}
+{return ASIGNACION;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
 #line 40 "token.l"
-{printf("OPERADORRELACIONAL: %s\n", yytext);yylval.stringVal=strdup(yytext);return OPERADORRELACIONAL;}
+{yylval.stringVal=strdup(yytext);return OPERADORRELACIONAL;}
 	YY_BREAK
 case 25:
 /* rule 25 can match eol */
 YY_RULE_SETUP
 #line 41 "token.l"
-{printf("Salto de linea: %s\n",yytext);return FINL;}	
+{return FINL;}	
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
 #line 42 "token.l"
-{printf("OPERADORSUMRETS: %s\n", yytext);yylval.stringVal=strdup(yytext);return OPERADORSUMREST;}
+{yylval.stringVal=strdup(yytext);return OPERADORSUMREST;}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
 #line 43 "token.l"
-{printf("OPERADORSUMRETS: %s\n", yytext);yylval.stringVal=strdup(yytext);return OPERADORMULTDIV;}
+{yylval.stringVal=strdup(yytext);return OPERADORMULTDIV;}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
