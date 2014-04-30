@@ -61,6 +61,7 @@ void updateIsUsed(nodeTable* head, char* nombre, char* alcance, char* newData) {
     nodeTable *p;
     for (p = head; p != NULL; p = p->next) {
         if ((strcmp(p->name, nombre) == 0) && p->alcance == alcance) {
+            printf("%s:","entro");
             p->isUsed = newData;
         }
     }
@@ -69,8 +70,11 @@ void updateIsUsed(nodeTable* head, char* nombre, char* alcance, char* newData) {
 void updateValue(nodeTable* head, char* nombre, char* alcance, int newValue) {
     nodeTable *p;
     for (p = head; p != NULL; p = p->next) {
-        if ((strcmp(p->name, nombre) == 0) && p->alcance == alcance) {
+              
+        if ((strcmp(p->name, nombre) == 0) &&(strcmp(p->alcance, alcance) == 0)) {
+            
             p->value = newValue;
+            break;
         }
     }
 }
@@ -88,7 +92,7 @@ void printTable(nodeTable* head) {
 int getElementValue(nodeTable* head, char* name) {
     struct nodeTable *p;
     for (p = head; p != NULL; p = p->next) {
-        if (p->name == name) {
+        if ((strcmp(p->name, name))==0) {
             return p->value;
 
         }
@@ -100,7 +104,7 @@ int getElementValue(nodeTable* head, char* name) {
 int getElementLine(nodeTable* head, char* name) {
     struct nodeTable *p;
     for (p = head; p != NULL; p = p->next) {
-        if (p->name == name) {
+        if ((strcmp(p->name, name))==0) {
             return p->line;
 
         }
