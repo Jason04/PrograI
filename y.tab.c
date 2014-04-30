@@ -77,11 +77,12 @@
     extern void marcarUtilizada(char *variable,char *alcance);
     extern int fueDeclarada(char *variable,char *alcance);
     void yyerror(char *s);
+    extern void SetError(char *tipo, char *descripcion,char *textoError);
     void erroresSemanticos(char *tipoerror, char *texto);
     void errorSaltoCondicion(char *condicion,char *operador);
 
 /* Line 371 of yacc.c  */
-#line 85 "y.tab.c"
+#line 86 "y.tab.c"
 
 # ifndef YY_NULL
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -185,7 +186,7 @@ extern int yydebug;
 typedef union YYSTYPE
 {
 /* Line 387 of yacc.c  */
-#line 21 "token.y"
+#line 22 "token.y"
 
     int num; 
     int id;
@@ -194,7 +195,7 @@ typedef union YYSTYPE
 
 
 /* Line 387 of yacc.c  */
-#line 198 "y.tab.c"
+#line 199 "y.tab.c"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -222,7 +223,7 @@ int yyparse ();
 /* Copy the second part of user declarations.  */
 
 /* Line 390 of yacc.c  */
-#line 226 "y.tab.c"
+#line 227 "y.tab.c"
 
 #ifdef short
 # undef short
@@ -542,12 +543,12 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    51,    51,    52,    56,    57,    59,    60,    61,    63,
-      63,    63,    67,    67,    69,    70,    71,    73,    80,    81,
-      84,    87,    90,    93,    96,    97,    98,    99,    99,   102,
-     103,   106,   107,   108,   112,   112,   115,   116,   119,   120,
-     123,   123,   124,   127,   127,   129,   129,   132,   132,   134,
-     134,   136,   137,   138,   139,   140,   141,   142,   143
+       0,    52,    52,    53,    57,    58,    60,    61,    62,    64,
+      64,    64,    68,    68,    70,    71,    72,    74,    81,    82,
+      85,    88,    91,    94,    97,    98,    99,   100,   100,   103,
+     104,   107,   108,   109,   113,   113,   116,   117,   120,   121,
+     124,   124,   125,   128,   128,   130,   130,   133,   133,   135,
+     135,   137,   138,   139,   140,   141,   142,   143,   144
 };
 #endif
 
@@ -1517,55 +1518,55 @@ yyreduce:
     {
         case 6:
 /* Line 1787 of yacc.c  */
-#line 59 "token.y"
+#line 60 "token.y"
     {setVariable((yyvsp[(2) - (3)].stringVal),alcance);}
     break;
 
   case 7:
 /* Line 1787 of yacc.c  */
-#line 60 "token.y"
+#line 61 "token.y"
     {yyerrok;}
     break;
 
   case 9:
 /* Line 1787 of yacc.c  */
-#line 63 "token.y"
+#line 64 "token.y"
     {setParametro((yyvsp[(4) - (4)].stringVal),alcance,(yyvsp[(2) - (4)].stringVal));setFuncion((yyvsp[(4) - (4)].stringVal),alcance,(yyvsp[(2) - (4)].stringVal));}
     break;
 
   case 10:
 /* Line 1787 of yacc.c  */
-#line 63 "token.y"
+#line 64 "token.y"
     {alcance="i";}
     break;
 
   case 11:
 /* Line 1787 of yacc.c  */
-#line 64 "token.y"
+#line 65 "token.y"
     {alcance="o";}
     break;
 
   case 14:
 /* Line 1787 of yacc.c  */
-#line 69 "token.y"
+#line 70 "token.y"
     {if(fueDeclarada((yyvsp[(1) - (4)].stringVal),alcance)==0){erroresSemanticos("la variable no existe",(yyvsp[(1) - (4)].stringVal));};if(fueDeclarada((yyvsp[(1) - (4)].stringVal),alcance)==1){asignarValor((yyvsp[(1) - (4)].stringVal),alcance,(yyvsp[(3) - (4)].num));};}
     break;
 
   case 15:
 /* Line 1787 of yacc.c  */
-#line 70 "token.y"
+#line 71 "token.y"
     {if(fueDeclarada((yyvsp[(1) - (3)].stringVal),alcance)==0){erroresSemanticos("la variable no existe",(yyvsp[(1) - (3)].stringVal));};if(fueDeclarada((yyvsp[(1) - (3)].stringVal),alcance)==1){asignarValor((yyvsp[(1) - (3)].stringVal),alcance,(yyvsp[(3) - (3)].num));};}
     break;
 
   case 16:
 /* Line 1787 of yacc.c  */
-#line 71 "token.y"
+#line 72 "token.y"
     {;}
     break;
 
   case 17:
 /* Line 1787 of yacc.c  */
-#line 73 "token.y"
+#line 74 "token.y"
     {
                                 if(strcmp((yyvsp[(2) - (3)].stringVal),">=") == 0){(yyval.num)=(yyvsp[(1) - (3)].num)>=(yyvsp[(3) - (3)].num);};
                                 if(strcmp((yyvsp[(2) - (3)].stringVal),"==") == 0){(yyval.num)=(yyvsp[(1) - (3)].num)==(yyvsp[(3) - (3)].num);};
@@ -1577,19 +1578,19 @@ yyreduce:
 
   case 18:
 /* Line 1787 of yacc.c  */
-#line 80 "token.y"
+#line 81 "token.y"
     {(yyval.num)=(yyvsp[(1) - (1)].num);}
     break;
 
   case 19:
 /* Line 1787 of yacc.c  */
-#line 81 "token.y"
+#line 82 "token.y"
     {yyerrok;}
     break;
 
   case 20:
 /* Line 1787 of yacc.c  */
-#line 84 "token.y"
+#line 85 "token.y"
     { 
                                 if(strcmp((yyvsp[(2) - (3)].stringVal),"+") == 0){(yyval.num)=(yyvsp[(1) - (3)].num)+(yyvsp[(3) - (3)].num);};
                                 if(strcmp((yyvsp[(2) - (3)].stringVal),"-") == 0){(yyval.num)=(yyvsp[(1) - (3)].num)-(yyvsp[(3) - (3)].num);};}
@@ -1597,123 +1598,123 @@ yyreduce:
 
   case 21:
 /* Line 1787 of yacc.c  */
-#line 87 "token.y"
+#line 88 "token.y"
     {(yyval.num)=(yyvsp[(1) - (1)].num);}
     break;
 
   case 22:
 /* Line 1787 of yacc.c  */
-#line 90 "token.y"
+#line 91 "token.y"
     {
                                 if(strcmp((yyvsp[(2) - (3)].stringVal),"*") == 0){(yyval.num)=(yyvsp[(1) - (3)].num)*(yyvsp[(3) - (3)].num);};
-                                if(strcmp((yyvsp[(2) - (3)].stringVal),"/") == 0){if((yyvsp[(3) - (3)].num)==0){erroresSemanticos("Zero Division","0");};(yyval.num)=(yyvsp[(1) - (3)].num)/(yyvsp[(3) - (3)].num);};}
+                                if(strcmp((yyvsp[(2) - (3)].stringVal),"/") == 0){if((yyvsp[(3) - (3)].num)==0){erroresSemanticos("Zero Division","0");(yyval.num)=(yyvsp[(1) - (3)].num)/1;}else{(yyval.num)=(yyvsp[(1) - (3)].num)/(yyvsp[(3) - (3)].num);};}}
     break;
 
   case 23:
 /* Line 1787 of yacc.c  */
-#line 93 "token.y"
+#line 94 "token.y"
     {(yyval.num)=(yyvsp[(1) - (1)].num);}
     break;
 
   case 24:
 /* Line 1787 of yacc.c  */
-#line 96 "token.y"
+#line 97 "token.y"
     {(yyval.num)=(yyvsp[(2) - (3)].num);}
     break;
 
   case 25:
 /* Line 1787 of yacc.c  */
-#line 97 "token.y"
+#line 98 "token.y"
     {(yyval.num)=buscaValor((yyvsp[(1) - (1)].stringVal));}
     break;
 
   case 26:
 /* Line 1787 of yacc.c  */
-#line 98 "token.y"
+#line 99 "token.y"
     {(yyval.num)=(yyvsp[(1) - (1)].num);}
     break;
 
   case 27:
 /* Line 1787 of yacc.c  */
-#line 99 "token.y"
+#line 100 "token.y"
     {if(fueDeclarada((yyvsp[(2) - (2)].stringVal),alcance)==0){erroresSemanticos("la funcion no existe",(yyvsp[(2) - (2)].stringVal));};}
     break;
 
   case 28:
 /* Line 1787 of yacc.c  */
-#line 99 "token.y"
+#line 100 "token.y"
     {;}
     break;
 
   case 31:
 /* Line 1787 of yacc.c  */
-#line 106 "token.y"
+#line 107 "token.y"
     {(yyval.num)=(yyvsp[(1) - (1)].num);}
     break;
 
   case 32:
 /* Line 1787 of yacc.c  */
-#line 107 "token.y"
+#line 108 "token.y"
     {(yyval.num)=1;}
     break;
 
   case 33:
 /* Line 1787 of yacc.c  */
-#line 108 "token.y"
+#line 109 "token.y"
     {(yyval.num)=0;}
     break;
 
   case 34:
 /* Line 1787 of yacc.c  */
-#line 112 "token.y"
+#line 113 "token.y"
     {if((yyvsp[(3) - (3)].num) == 0)errorSaltoCondicion("falsa","if");}
     break;
 
   case 37:
 /* Line 1787 of yacc.c  */
-#line 116 "token.y"
+#line 117 "token.y"
     {alcance="o";}
     break;
 
   case 40:
 /* Line 1787 of yacc.c  */
-#line 123 "token.y"
+#line 124 "token.y"
     {if((yyvsp[(3) - (3)].num) == 0) errorSaltoCondicion("falsa","mientras");}
     break;
 
   case 43:
 /* Line 1787 of yacc.c  */
-#line 127 "token.y"
+#line 128 "token.y"
     {setEtiqueta((yyvsp[(2) - (2)].stringVal),alcance);}
     break;
 
   case 45:
 /* Line 1787 of yacc.c  */
-#line 129 "token.y"
+#line 130 "token.y"
     {if(fueDeclarada((yyvsp[(2) - (2)].stringVal),alcance)==0){erroresSemanticos("la etiqueta no existe",(yyvsp[(2) - (2)].stringVal));};}
     break;
 
   case 47:
 /* Line 1787 of yacc.c  */
-#line 132 "token.y"
+#line 133 "token.y"
     {if(fueDeclarada((yyvsp[(2) - (2)].stringVal),alcance)==0){erroresSemanticos("la variable no existe",(yyvsp[(2) - (2)].stringVal));};}
     break;
 
   case 49:
 /* Line 1787 of yacc.c  */
-#line 134 "token.y"
+#line 135 "token.y"
     {if(fueDeclarada((yyvsp[(2) - (2)].stringVal),alcance)==0){erroresSemanticos("la variable no existe",(yyvsp[(2) - (2)].stringVal));};}
     break;
 
   case 58:
 /* Line 1787 of yacc.c  */
-#line 143 "token.y"
+#line 144 "token.y"
     {yyerrok;}
     break;
 
 
 /* Line 1787 of yacc.c  */
-#line 1717 "y.tab.c"
+#line 1718 "y.tab.c"
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1945,14 +1946,16 @@ yyreturn:
 
 
 /* Line 2050 of yacc.c  */
-#line 148 "token.y"
+#line 149 "token.y"
 
 void yyerror(char *t){
-  printf("Error sintactico en linea %d,Texto Encontrado %s\n",yylineno,yytext);   
+    SetError("Error Sintactico","Error Sintactico",yytext);   
 }
 void erroresSemanticos(char *tipoerror, char *texto){
-    printf("Error semantico de tipo %s en linea %d,con el Texto Encontrado %s\n",tipoerror,yylineno,texto);
+    SetError("Error Semantico",tipoerror,texto);
+    
 }
 void errorSaltoCondicion(char *condicion,char *operador){
-    //printf("Error semantico por condicion: %s en el: %s en linea: %d\n",condicion,operador,yylineno);
+    SetError("Error Semantico por Condicion",operador,condicion);
+    
 }

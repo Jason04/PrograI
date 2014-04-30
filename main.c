@@ -15,6 +15,7 @@ extern char *alcance = "o";
 extern int yyparse();
 extern int yylex();
 struct nodeTable* current;
+struct nodeTable* manejoErrores;
 struct nodeS* comentario;
 extern FILE *yyin;
 
@@ -33,6 +34,7 @@ extern void setEtiqueta(char *variable, char *alcance);
 extern void marcarUtilizada(char *variable,char *alcance);
 extern int fueDeclarada(char *variable, char *alcance);
 extern void setComentario(char *comment);
+extern void SetError(char *tipo, char *descripcion, char *textoError);
 main()
 {
 
@@ -48,6 +50,7 @@ main()
     //print(comentario);
     printTable(current);
     escribirHTML(comentario);
+    printTable(manejoErrores);
    //*********************************************************
     
 }
@@ -68,6 +71,16 @@ void setComentario(char *comment){
         comentario = newNode1(copyAux);}
     else{comentario = addFront1(comentario, copyAux);}
     
+}
+void SetError(char *tipo, char *descripcion,char *textoError){
+    const char *copy = textoError;
+    char *texto = NULL;
+    texto = strdup(copy);
+    if(manejoErrores==NULL){
+    manejoErrores= newNode(yylineno,tipo,descripcion,texto,"No","No","No",-1);}
+    else{
+        manejoErrores= addFront(manejoErrores,yylineno,tipo,descripcion,texto,"No","No","No",-1);
+    }
 }
 void setVariable(char *variable, char *alcance){
     if(current==NULL){

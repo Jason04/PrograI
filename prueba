@@ -16,7 +16,7 @@ funcion prueba(arg){
 nuevos = 27/3
 nuevos = (nuevos*9)+2
 a=20+*
-a=4
+a=@
 si )false) entonces z=4 sino popo=8
 nuevo = c
 etiqueta OSCAR
@@ -25,3 +25,4 @@ ir osa
 imprimir z
 leer OSCAR
 mientras (a<3) haga a=1
+a=5/0
