@@ -11,6 +11,7 @@
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
+      <itemPath>Documentacion.html</itemPath>
       <itemPath>Tabla Manejo de errores.txt</itemPath>
       <itemPath>Tabla de Simbolos.txt</itemPath>
       <itemPath>prueba</itemPath>
@@ -42,6 +43,8 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="Documentacion.html" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Tabla Manejo de errores.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Tabla de Simbolos.txt" ex="false" tool="3" flavor2="0">

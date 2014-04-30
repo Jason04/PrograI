@@ -61,7 +61,6 @@ void updateIsUsed(nodeTable* head, char* nombre, char* alcance, char* newData) {
     nodeTable *p;
     for (p = head; p != NULL; p = p->next) {
         if ((strcmp(p->name, nombre) == 0) && p->alcance == alcance) {
-            printf("%s:", "entro");
             p->isUsed = newData;
         }
     }

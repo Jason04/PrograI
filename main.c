@@ -66,28 +66,12 @@ main()
     //    escribirHTML(a);
 
     escribirTablaTXT(current);
-    //*********************************************************
-   // printf("%d",strlen("                "));
-
-
-    //    yyin = fopen("prueba", "r");
-    //
-    //    do {
-    //        yyparse();
-    //        // yylex();
-    //    } while (!feof(yyin));
-    //    fclose(yyin);
-    //
-    //    //    //Imprimer tabla
-    //
-    //    printTable(current);
-    //*********************************************************
     escribirHTML(comentario);
  
     escribirErroresTXT(manejoErrores);
-   //*********************************************************
-    printTable(manejoErrores);
-//este es mio
+   
+   // printTable(manejoErrores);
+
 }
 
 void setComentario(char *comment){

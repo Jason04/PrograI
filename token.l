@@ -37,7 +37,7 @@ digito	        [0-9]
 {digito}{digito}*							{yylval.num=atoi(yytext);return NUM;}
 
 \/\*+"*"([^*]|[\t\n]|(\*+([^*/]|[\t\n])))*\*+"*"+\/			{setComentario(yytext);}
-\/\*([^*]|[\t\n]|(\*+([^*/]|[\t\n])))*\*+\/				{printf("COMENTARIO: %s\n", yytext);};
+\/\*([^*]|[\t\n]|(\*+([^*/]|[\t\n])))*\*+\/				{setComentario(yytext);};
 "="									{return ASIGNACION;}
 "<"|">"|"<="|">="|"=="|"!="						{yylval.stringVal=strdup(yytext);return OPERADORRELACIONAL;}
 [\n]								        {return FINL;}	

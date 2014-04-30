@@ -16,7 +16,6 @@ struct nodeS* newNode1(char* data) {
 }
 
 struct nodeS* addFront1(struct nodeS* head, char* data) {
- printf(" %s\n", data);
     struct nodeS* node = newNode1(data);
     if (node == NULL) {
         return head;

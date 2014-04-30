@@ -993,7 +993,7 @@ case 22:
 /* rule 22 can match eol */
 YY_RULE_SETUP
 #line 40 "token.l"
-{printf("COMENTARIO: %s\n", yytext);};
+{setComentario(yytext);};
 	YY_BREAK
 case 23:
 YY_RULE_SETUP

@@ -4,7 +4,7 @@ declarar a
 declarar q
 baca
 declarar e
-/**Oscar Montes que haces**/
+/*@ Montes que haces*/
 declarar nuevo
 declarar nuevo2
 funcion prueba(arg){
@@ -13,6 +13,7 @@ funcion prueba(arg){
         newNum2 = 5>*nuevo2
         retornar newNum
 }
+/*@ declaracion varible */
 nuevos = 27/3
 nuevos = (nuevos*9)+2
 a=20+*
