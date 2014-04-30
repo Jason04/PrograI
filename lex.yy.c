@@ -600,7 +600,7 @@ char *yytext;
 extern char *alcance; 
 extern yylineno; //numero de linea 
 void errorLexico(char *s,int linenumber);
-extern int booleano;
+extern void setComentario(char *comment);
 #line 605 "lex.yy.c"
 
 #define INITIAL 0
@@ -788,7 +788,8 @@ YY_DECL
     
 #line 15 "token.l"
 
-#line 792 "lex.yy.c"
+
+#line 793 "lex.yy.c"
 
 	if ( !(yy_init) )
 		{
@@ -883,158 +884,158 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 16 "token.l"
-{printf("llaveabierta: %s\n",yytext);return LLAVEABIERTA;}
+#line 17 "token.l"
+{return LLAVEABIERTA;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 17 "token.l"
-{printf("llavecerrada: %s\n",yytext);return LLAVECERRADA;}
+#line 18 "token.l"
+{return LLAVECERRADA;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 18 "token.l"
-{printf("parentesisabierto: %s\n",yytext);return PARENTESISABIERTO;}
+#line 19 "token.l"
+{return PARENTESISABIERTO;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 19 "token.l"
-{printf("parentesiscerrado: %s\n",yytext);return PARENTESISCERRADO;}
+#line 20 "token.l"
+{return PARENTESISCERRADO;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 20 "token.l"
-{printf("reservada: %s\n",yytext);return FUNCION;}
+#line 21 "token.l"
+{return FUNCION;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 21 "token.l"
-{printf("reservada: %s\n",yytext);return RETORNAR;}
+#line 22 "token.l"
+{return RETORNAR;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 22 "token.l"
-{printf("reservada: %s\n",yytext);return DECLARAR;}
+#line 23 "token.l"
+{return DECLARAR;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 23 "token.l"
-{printf("reservada: %s\n",yytext);return TRUE;}
+#line 24 "token.l"
+{return TRUE;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 24 "token.l"
-{printf("reservada: %s\n",yytext);return FALSE;}
+#line 25 "token.l"
+{return FALSE;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 25 "token.l"
-{printf("reservada: %s\n",yytext);return SI;}
+#line 26 "token.l"
+{return SI;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 26 "token.l"
-{printf("reservada: %s\n",yytext);return ENTONCES;}
+#line 27 "token.l"
+{return ENTONCES;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 27 "token.l"
-{printf("reservada: %s\n",yytext);return HAGA;}
+#line 28 "token.l"
+{return HAGA;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 28 "token.l"
-{printf("reservada: %s\n",yytext);return MIENTRAS;}
+#line 29 "token.l"
+{return MIENTRAS;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 29 "token.l"
-{printf("reservada: %s\n",yytext);return SINO;}
+#line 30 "token.l"
+{return SINO;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 30 "token.l"
-{printf("reservada: %s\n",yytext);return ETIQUETA;}
+#line 31 "token.l"
+{return ETIQUETA;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 31 "token.l"
-{printf("reservada: %s\n",yytext);return IMPRIMIR;}
+#line 32 "token.l"
+{return IMPRIMIR;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 32 "token.l"
-{printf("reservada: %s\n",yytext);return IR;}
+#line 33 "token.l"
+{return IR;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 33 "token.l"
-{printf("reservada: %s\n",yytext);return LEER;}
+#line 34 "token.l"
+{return LEER;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 34 "token.l"
-{printf("ID: %s", yytext);yylval.stringVal=strdup(yytext);return ID;}
+#line 35 "token.l"
+{yylval.stringVal=strdup(yytext);return ID;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 35 "token.l"
-{printf("NUM: %s\n", yytext);yylval.num=atoi(yytext);return NUM;}
+#line 36 "token.l"
+{yylval.num=atoi(yytext);return NUM;}
 	YY_BREAK
 case 21:
 /* rule 21 can match eol */
 YY_RULE_SETUP
-#line 37 "token.l"
-{printf("DOCUMENTACION: %s\n", yytext);}
+#line 38 "token.l"
+{setComentario(yytext);}
 	YY_BREAK
 case 22:
 /* rule 22 can match eol */
 YY_RULE_SETUP
-#line 38 "token.l"
+#line 39 "token.l"
 {printf("COMENTARIO: %s\n", yytext);};
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 39 "token.l"
-{printf("ASIGNACION: %s\n", yytext);return ASIGNACION;}
+#line 40 "token.l"
+{return ASIGNACION;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 40 "token.l"
-{printf("OPERADORRELACIONAL: %s\n", yytext);yylval.stringVal=strdup(yytext);return OPERADORRELACIONAL;}
+#line 41 "token.l"
+{yylval.stringVal=strdup(yytext);return OPERADORRELACIONAL;}
 	YY_BREAK
 case 25:
 /* rule 25 can match eol */
 YY_RULE_SETUP
-#line 41 "token.l"
-{printf("Salto de linea: %s\n",yytext);return FINL;}	
+#line 42 "token.l"
+{return FINL;}	
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 42 "token.l"
-{printf("OPERADORSUMRETS: %s\n", yytext);yylval.stringVal=strdup(yytext);return OPERADORSUMREST;}
+#line 43 "token.l"
+{yylval.stringVal=strdup(yytext);return OPERADORSUMREST;}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 43 "token.l"
-{printf("OPERADORSUMRETS: %s\n", yytext);yylval.stringVal=strdup(yytext);return OPERADORMULTDIV;}
+#line 44 "token.l"
+{yylval.stringVal=strdup(yytext);return OPERADORMULTDIV;}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 44 "token.l"
+#line 45 "token.l"
 ;
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 45 "token.l"
+#line 46 "token.l"
 printf("Error lexico  linea %d,%s\n", yylineno, yytext);
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 48 "token.l"
+#line 49 "token.l"
 ECHO;
 	YY_BREAK
-#line 1038 "lex.yy.c"
+#line 1039 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2003,7 +2004,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 48 "token.l"
+#line 49 "token.l"
 
 
 

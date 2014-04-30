@@ -2,20 +2,26 @@ declarar s1
 declarar s2
 declarar a
 declarar q
+baca
 declarar e
-/***/
+/**Oscar Montes que haces**/
 declarar nuevo
 declarar nuevo2
 funcion prueba(arg){
         declarar newNum2 
         declarar newNum
-        newNum2 = 5>nuevo2
+        newNum2 = 5>*nuevo2
         retornar newNum
 }
-a = +*5
 nuevos = 27/3
 nuevos = (nuevos*9)+2
-si (a>10) entonces z=4 sino popo=8
+a=20+*
+a=4
+si )false) entonces z=4 sino popo=8
 nuevo = c
 etiqueta OSCAR
-hola
+ir OSCAR
+ir osa
+imprimir z
+leer OSCAR
+mientras (a<3) haga a=1
