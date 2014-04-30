@@ -61,7 +61,7 @@ void updateIsUsed(nodeTable* head, char* nombre, char* alcance, char* newData) {
     nodeTable *p;
     for (p = head; p != NULL; p = p->next) {
         if ((strcmp(p->name, nombre) == 0) && p->alcance == alcance) {
-            printf("%s:","entro");
+            printf("%s:", "entro");
             p->isUsed = newData;
         }
     }
@@ -70,9 +70,9 @@ void updateIsUsed(nodeTable* head, char* nombre, char* alcance, char* newData) {
 void updateValue(nodeTable* head, char* nombre, char* alcance, int newValue) {
     nodeTable *p;
     for (p = head; p != NULL; p = p->next) {
-              
+
         if ((strcmp(p->name, nombre) == 0) &&(strcmp(p->alcance, alcance) == 0)) {
-            
+
             p->value = newValue;
             break;
         }
@@ -92,14 +92,15 @@ void printTable(nodeTable* head) {
 int getElementValue(nodeTable* head, char* name) {
     struct nodeTable *p;
     for (p = head; p != NULL; p = p->next) {
-        if ((strcmp(p->name, name))==0) {
+        if ((strcmp(p->name, name)) == 0) {
             return p->value;
 
         }
     }
 
 }
- void escribirTXT(nodeTable* head) {
+
+void escribirTXT(nodeTable* head) {
     FILE *ptr_file;
     int x;
 
@@ -108,78 +109,88 @@ int getElementValue(nodeTable* head, char* name) {
     if (!ptr_file)
         return 1;
 
+//    fprintf(ptr_file, "%s\n", "");
+//    fprintf(ptr_file, "%s\n", "");
+//    fprintf(ptr_file, "%s\n", "");
+//    fprintf(ptr_file, "%s\n", "");
     fprintf(ptr_file, "%s\n", "");
-    fprintf(ptr_file, "%s\n", "");
-    fprintf(ptr_file, "%s\n", "");
-    fprintf(ptr_file, "%s\n", "");
-    fprintf(ptr_file, "%s\n", "");
-    fprintf(ptr_file, "%s\n", "                                    __________________________________________________________________________");
-    fprintf(ptr_file, "%s\n", "                                   |*                                   Variables                         |*");
-    fprintf(ptr_file, "%s\n", "                                    * Nombre*     Línea*      ¿Parámetro?*       Función*         ¿Utilizada?");
+    fprintf(ptr_file, "%s\n", "                                ********************************************************************************");
+    fprintf(ptr_file, "%s\n", "                                *                                   Variables                                  *");
+    fprintf(ptr_file, "%s\n", "                                ********************************************************************************");
+    fprintf(ptr_file, "%s\n", "                                *  Nombre*        Línea*        ¿Parámetro?*        Función*        ¿Utilizada? ");
 
     nodeTable *p;
     for (p = head; p != NULL; p = p->next) {
-        if(){
-        fprintf(ptr_file,"%s", "                                     ");
-        fprintf(ptr_file,"%s", p->name);
-        fprintf(ptr_file,"%s", "     ");
-        fprintf(ptr_file,"%d",p->line);
-        fprintf(ptr_file,"%s", "      ");
-        fprintf(ptr_file,"%s",p->isParameter );
-        fprintf(ptr_file,"%s", "       ");
-        fprintf(ptr_file,"%s", p->function);
-        fprintf(ptr_file,"%s", "         ");
-        fprintf(ptr_file,"%s\n", p->isUsed);
-        
-        }}
-    fprintf(ptr_file, "%s\n", "                                   |*                                   Funciones                        |*");
-    fprintf(ptr_file, "%s\n", "                                    * Nombre*        Línea*          Parámetro              ¿Utilizada?*");
+        if ((strcmp(p->parameter, "Es variable")) == 0) {
+            fprintf(ptr_file, "%s", "                                *  ");
+            fprintf(ptr_file, "%s", p->name);
+            fprintf(ptr_file, "%s", space(p->name ,"              "));
+            fprintf(ptr_file, "%d", p->line);
+            fprintf(ptr_file, "%s", "      ");
+            fprintf(ptr_file, "%s", p->isParameter);
+            fprintf(ptr_file, "%s", "       ");
+            fprintf(ptr_file, "%s", p->function);
+            fprintf(ptr_file, "%s", "         ");
+            fprintf(ptr_file, "%s", p->isUsed);
+            fprintf(ptr_file, "%s\n", "   *     ");
 
-     for (p = head; p != NULL; p = p->next) {
-        fprintf(ptr_file,"%s", "                                     ");
-        fprintf(ptr_file,"%s", p->name);
-        fprintf(ptr_file,"%s", "     ");
-        fprintf(ptr_file,"%d",p->line);
-        fprintf(ptr_file,"%s", "      ");
-        fprintf(ptr_file,"%s",p->parameter );
-        fprintf(ptr_file,"%s", "       ");
-        fprintf(ptr_file,"%s\n", p->isUsed);
-        
+        }
     }
-    
-    fprintf(ptr_file, "%s\n", "                                   |*            Etiquetas                        |*");
-    fprintf(ptr_file, "%s\n", "                                    * Nombre*        Línea*           ¿Utilizada?*");
+       fprintf(ptr_file, "%s\n", "                                ********************************************************************************");
 
-     for (p = head; p != NULL; p = p->next) {
-        fprintf(ptr_file,"%s", "                                     ");
-        fprintf(ptr_file,"%s", p->name);
-        fprintf(ptr_file,"%s", "     ");
-        fprintf(ptr_file,"%d",p->line);
-        fprintf(ptr_file,"%s", "      ");
-        fprintf(ptr_file,"%s",p->parameter );
-        fprintf(ptr_file,"%s", "       ");
-        fprintf(ptr_file,"%s\n", p->isUsed);
-        
+    fprintf(ptr_file, "%s\n", "                                *                                    Funciones                                 *");
+       fprintf(ptr_file, "%s\n", "                                ********************************************************************************");
+
+    fprintf(ptr_file, "%s\n", "                                 * Nombre*         Línea*        Parámetro          ¿Utilizada?*");
+                                                                  
+    for (p = head; p != NULL; p = p->next) {
+        if ((strcmp(p->function, "Es funcion")) == 0) {
+            fprintf(ptr_file, "%s", "                                     ");
+            fprintf(ptr_file, "%s", p->name);
+            fprintf(ptr_file, "%s", "     ");
+            fprintf(ptr_file, "%d", p->line);
+            fprintf(ptr_file, "%s", "      ");
+            fprintf(ptr_file, "%s", p->parameter);
+            fprintf(ptr_file, "%s", "       ");
+            fprintf(ptr_file, "%s", p->isUsed);
+
+        }
     }
+     fprintf(ptr_file, "%s\n", "                                ********************************************************************************");
+    fprintf(ptr_file, "%s\n", "                                *                                   Etiquetas                                  *");
+       fprintf(ptr_file, "%s\n", "                                ********************************************************************************");
 
+    fprintf(ptr_file, "%s\n", "                                *  Nombre*        Línea*        ¿Utilizada?*");
+                                                                    
+    for (p = head; p != NULL; p = p->next) {
+        if ((strcmp(p->parameter, "Es etiqueta")) == 0) {
+            fprintf(ptr_file, "%s", "                                     ");
+            fprintf(ptr_file, "%s", p->name);
+            fprintf(ptr_file, "%s", "     ");
+            fprintf(ptr_file, "%d", p->line);
+            fprintf(ptr_file, "%s", "       ");
+            fprintf(ptr_file, "%s\n", p->isUsed);
+
+        }
+    }
+ fprintf(ptr_file, "%s\n", "");
+  fprintf(ptr_file, "%s\n", "");
     fclose(ptr_file);
 
     return 0;
 
 }
 
-
 int getElementLine(nodeTable* head, char* name) {
     struct nodeTable *p;
     for (p = head; p != NULL; p = p->next) {
-        if ((strcmp(p->name, name))==0) {
+        if ((strcmp(p->name, name)) == 0) {
             return p->line;
 
         }
     }
 
 }
-
 
 char* getElementAtrib(nodeTable* head, char* name, char caso) {
     struct nodeTable *p;
@@ -208,6 +219,28 @@ char* getElementAtrib(nodeTable* head, char* name, char caso) {
             }
 
         }
+    }
+    char * space(char * var,char *espacioDis){
+    int i = strlen(espacioDis)+strlen(var) ;
+    char* result = calloc(sizeof(espacioDis)+1,sizeof *result);
+//    char* result = calloc(sizeof("                ")+1,sizeof *result);
+    while (i>0){
+    strcpy(result, " ");
+    }
+//    
+    return result;
+//    
+//    
+//    char *str = calloc(sizeof (p->data) +
+//                sizeof (p->data) + sizeof ("<Comentario>") +
+//                sizeof ("</Comentario><hr>")
+//                + 1, sizeof *str);
+//        strcpy(str, "<Comentario>");// Concatenacion
+//        strcat(str, p->data);
+//        strcat(str, "</Comentario><hr>");
+//        fprintf(fp, str);
+//    
+    
     }
 
 }

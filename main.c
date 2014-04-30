@@ -65,7 +65,7 @@ main()
 
     escribirTXT(current);
     //*********************************************************
-
+   // printf("%d",strlen("                "));
 
 
     //    yyin = fopen("prueba", "r");
@@ -123,14 +123,14 @@ void setParametro(char *variable, char *alcance,char* funcion){
 }
 
 void setFuncion(char *variable, char *alcance,char* funcion){
-    current=addFront(current,yylineno, "no", funcion, "NA", "Es funcion", variable, alcance,-1);
+    current=addFront(current,yylineno, "no", funcion, "Es funcion", "no", variable, alcance,-1);
 
     //printTable(current);
     //printf("se declaro un ID: %s con alcance de: %s\n",variable,alcance);
 }
 
 void setEtiqueta(char *variable, char *alcance){
-    current=addFront(current,yylineno, "no", variable, "NA", "no", "Es etiqueta", alcance,-1);
+    current=addFront(current,yylineno, "Es etiqueta", variable, "NA", "no", "Es etiqueta", alcance,-1);
 
     //printTable(current);
     //printf("se declaro una etiqueta: %s con alcance de: %s\n",variable,alcance);
