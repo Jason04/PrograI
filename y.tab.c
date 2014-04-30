@@ -30,9 +30,10 @@ static const char yysccsid[] = "@(#)yaccpar	1.9 (Berkeley) 02/21/93";
     extern void marcarUtilizada(char *variable,char *alcance);
     extern int fueDeclarada(char *variable,char *alcance);
     void yyerror(char *s);
+    extern void SetError(char *tipo, char *descripcion,char *textoError);
     void erroresSemanticos(char *tipoerror, char *texto);
     void errorSaltoCondicion(char *condicion,char *operador);
-#line 21 "token.y"
+#line 22 "token.y"
 #ifdef YYSTYPE
 #undef  YYSTYPE_IS_DECLARED
 #define YYSTYPE_IS_DECLARED 1
@@ -46,7 +47,7 @@ typedef union {
     
 } YYSTYPE;
 #endif /* !YYSTYPE_IS_DECLARED */
-#line 49 "y.tab.c"
+#line 50 "y.tab.c"
 
 /* compatibility with bison */
 #ifdef YYPARSE_PARAM
@@ -372,17 +373,19 @@ typedef struct {
 } YYSTACKDATA;
 /* variables for the parser stack */
 static YYSTACKDATA yystack;
-#line 149 "token.y"
+#line 150 "token.y"
 void yyerror(char *t){
-  printf("Error sintactico en linea %d,Texto Encontrado %s\n",yylineno,yytext);   
+    SetError("Error Sintactico","Error Sintactico",yytext);   
 }
 void erroresSemanticos(char *tipoerror, char *texto){
-    printf("Error semantico de tipo %s en linea %d,con el Texto Encontrado %s\n",tipoerror,yylineno,texto);
+    SetError("Error Semantico",tipoerror,texto);
+    
 }
 void errorSaltoCondicion(char *condicion,char *operador){
-    //printf("Error semantico por condicion: %s en el: %s en linea: %d\n",condicion,operador,yylineno);
+    SetError("Error Semantico por Condicion",operador,condicion);
+    
 }
-#line 385 "y.tab.c"
+#line 388 "y.tab.c"
 
 #if YYDEBUG
 #include <stdio.h>		/* needed for printf */
@@ -589,39 +592,39 @@ yyreduce:
     switch (yyn)
     {
 case 5:
-#line 59 "token.y"
+#line 60 "token.y"
 	{setVariable(yystack.l_mark[-1].stringVal,alcance);}
 break;
 case 6:
-#line 60 "token.y"
+#line 61 "token.y"
 	{yyerrok;}
 break;
 case 8:
-#line 63 "token.y"
+#line 64 "token.y"
 	{setParametro(yystack.l_mark[0].stringVal,alcance,yystack.l_mark[-2].stringVal);setFuncion(yystack.l_mark[0].stringVal,alcance,yystack.l_mark[-2].stringVal);}
 break;
 case 9:
-#line 63 "token.y"
+#line 64 "token.y"
 	{alcance="i";}
 break;
 case 10:
-#line 64 "token.y"
+#line 65 "token.y"
 	{alcance="o";}
 break;
 case 13:
-#line 69 "token.y"
+#line 70 "token.y"
 	{if(fueDeclarada(yystack.l_mark[-3].stringVal,alcance)==0){erroresSemanticos("la variable no existe",yystack.l_mark[-3].stringVal);};if(fueDeclarada(yystack.l_mark[-3].stringVal,alcance)==1){asignarValor(yystack.l_mark[-3].stringVal,alcance,yystack.l_mark[-1].num);};}
 break;
 case 14:
-#line 70 "token.y"
+#line 71 "token.y"
 	{if(fueDeclarada(yystack.l_mark[-2].stringVal,alcance)==0){erroresSemanticos("la variable no existe",yystack.l_mark[-2].stringVal);};if(fueDeclarada(yystack.l_mark[-2].stringVal,alcance)==1){asignarValor(yystack.l_mark[-2].stringVal,alcance,yystack.l_mark[0].num);};}
 break;
 case 15:
-#line 71 "token.y"
+#line 72 "token.y"
 	{;}
 break;
 case 16:
-#line 73 "token.y"
+#line 74 "token.y"
 	{
                                 if(strcmp(yystack.l_mark[-1].stringVal,">=") == 0){yyval.num=yystack.l_mark[-2].num>=yystack.l_mark[0].num;};
                                 if(strcmp(yystack.l_mark[-1].stringVal,"==") == 0){yyval.num=yystack.l_mark[-2].num==yystack.l_mark[0].num;};
@@ -631,98 +634,98 @@ case 16:
                                 if(strcmp(yystack.l_mark[-1].stringVal,"!=") == 0){yyval.num=yystack.l_mark[-2].num!=yystack.l_mark[0].num;}}
 break;
 case 17:
-#line 80 "token.y"
+#line 81 "token.y"
 	{yyval.num=yystack.l_mark[0].num;}
 break;
 case 18:
-#line 81 "token.y"
+#line 82 "token.y"
 	{yyerrok;}
 break;
 case 19:
-#line 84 "token.y"
+#line 85 "token.y"
 	{ 
                                 if(strcmp(yystack.l_mark[-1].stringVal,"+") == 0){yyval.num=yystack.l_mark[-2].num+yystack.l_mark[0].num;};
                                 if(strcmp(yystack.l_mark[-1].stringVal,"-") == 0){yyval.num=yystack.l_mark[-2].num-yystack.l_mark[0].num;};}
 break;
 case 20:
-#line 87 "token.y"
+#line 88 "token.y"
 	{yyval.num=yystack.l_mark[0].num;}
 break;
 case 21:
-#line 90 "token.y"
+#line 91 "token.y"
 	{
                                 if(strcmp(yystack.l_mark[-1].stringVal,"*") == 0){yyval.num=yystack.l_mark[-2].num*yystack.l_mark[0].num;};
-                                if(strcmp(yystack.l_mark[-1].stringVal,"/") == 0){if(yystack.l_mark[0].num==0){erroresSemanticos("Zero Division","0");};yyval.num=yystack.l_mark[-2].num/yystack.l_mark[0].num;};}
+                                if(strcmp(yystack.l_mark[-1].stringVal,"/") == 0){if(yystack.l_mark[0].num==0){erroresSemanticos("Zero Division","0");yyval.num=yystack.l_mark[-2].num/1;}else{yyval.num=yystack.l_mark[-2].num/yystack.l_mark[0].num;};}}
 break;
 case 22:
-#line 93 "token.y"
+#line 94 "token.y"
 	{yyval.num=yystack.l_mark[0].num;}
 break;
 case 23:
-#line 96 "token.y"
+#line 97 "token.y"
 	{yyval.num=yystack.l_mark[-1].num;}
 break;
 case 24:
-#line 97 "token.y"
+#line 98 "token.y"
 	{yyval.num=buscaValor(yystack.l_mark[0].stringVal);}
 break;
 case 25:
-#line 98 "token.y"
+#line 99 "token.y"
 	{yyval.num=yystack.l_mark[0].num;}
 break;
 case 26:
-#line 99 "token.y"
+#line 100 "token.y"
 	{if(fueDeclarada(yystack.l_mark[0].stringVal,alcance)==0){erroresSemanticos("la funcion no existe",yystack.l_mark[0].stringVal);};}
 break;
 case 27:
-#line 99 "token.y"
+#line 100 "token.y"
 	{;}
 break;
 case 30:
-#line 106 "token.y"
+#line 107 "token.y"
 	{yyval.num=yystack.l_mark[0].num;}
 break;
 case 31:
-#line 107 "token.y"
+#line 108 "token.y"
 	{yyval.num=1;}
 break;
 case 32:
-#line 108 "token.y"
+#line 109 "token.y"
 	{yyval.num=0;}
 break;
 case 33:
-#line 112 "token.y"
+#line 113 "token.y"
 	{if(yystack.l_mark[0].num == 0)errorSaltoCondicion("falsa","if");}
 break;
 case 36:
-#line 116 "token.y"
+#line 117 "token.y"
 	{alcance="o";}
 break;
 case 39:
-#line 123 "token.y"
+#line 124 "token.y"
 	{if(yystack.l_mark[0].num == 0) errorSaltoCondicion("falsa","mientras");}
 break;
 case 42:
-#line 127 "token.y"
+#line 128 "token.y"
 	{setEtiqueta(yystack.l_mark[0].stringVal,alcance);}
 break;
 case 44:
-#line 129 "token.y"
+#line 130 "token.y"
 	{if(fueDeclarada(yystack.l_mark[0].stringVal,alcance)==0){erroresSemanticos("la etiqueta no existe",yystack.l_mark[0].stringVal);};}
 break;
 case 46:
-#line 132 "token.y"
+#line 133 "token.y"
 	{if(fueDeclarada(yystack.l_mark[0].stringVal,alcance)==0){erroresSemanticos("la variable no existe",yystack.l_mark[0].stringVal);};}
 break;
 case 48:
-#line 134 "token.y"
+#line 135 "token.y"
 	{if(fueDeclarada(yystack.l_mark[0].stringVal,alcance)==0){erroresSemanticos("la variable no existe",yystack.l_mark[0].stringVal);};}
 break;
 case 57:
-#line 143 "token.y"
+#line 144 "token.y"
 	{yyerrok;}
 break;
-#line 725 "y.tab.c"
+#line 728 "y.tab.c"
     }
     yystack.s_mark -= yym;
     yystate = *yystack.s_mark;

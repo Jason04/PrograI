@@ -5,6 +5,7 @@ extern char *alcance;
 extern yylineno; //numero de linea 
 void errorLexico(char *s,int linenumber);
 extern void setComentario(char *comment);
+extern void SetError(char *tipo, char *descripcion,char *textoError);
 %}
 %option nounput yylineno
 
@@ -43,7 +44,7 @@ digito	        [0-9]
 "+"|"-"									{yylval.stringVal=strdup(yytext);return OPERADORSUMREST;}
 "*"|"/"									{yylval.stringVal=strdup(yytext);return OPERADORMULTDIV;}
 [ \t]									;
-.									printf("Error lexico  linea %d,%s\n", yylineno, yytext);
+.									{SetError("Error Lexico","Error Lexico",yytext);}
 
 
 %% 

@@ -13,6 +13,7 @@
     extern void marcarUtilizada(char *variable,char *alcance);
     extern int fueDeclarada(char *variable,char *alcance);
     void yyerror(char *s);
+    extern void SetError(char *tipo, char *descripcion,char *textoError);
     void erroresSemanticos(char *tipoerror, char *texto);
     void errorSaltoCondicion(char *condicion,char *operador);
 %}
@@ -89,7 +90,7 @@ ExpresionSuma:			ExpresionSuma OPERADORSUMREST Termino {
 
 ExpresionMult:			ExpresionMult OPERADORMULTDIV ExpresionSuma {
                                 if(strcmp($2,"*") == 0){$$=$1*$3;};
-                                if(strcmp($2,"/") == 0){if($3==0){erroresSemanticos("Zero Division","0");};$$=$1/$3;};}
+                                if(strcmp($2,"/") == 0){if($3==0){erroresSemanticos("Zero Division","0");$$=$1/1;}else{$$=$1/$3;};}}
                                 |Termino {$$=$1;}
                                 ;
 
@@ -147,11 +148,13 @@ Declaracion:           DeclaracionAsignacion
 
 %%
 void yyerror(char *t){
-  printf("Error sintactico en linea %d,Texto Encontrado %s\n",yylineno,yytext);   
+    SetError("Error Sintactico","Error Sintactico",yytext);   
 }
 void erroresSemanticos(char *tipoerror, char *texto){
-    printf("Error semantico de tipo %s en linea %d,con el Texto Encontrado %s\n",tipoerror,yylineno,texto);
+    SetError("Error Semantico",tipoerror,texto);
+    
 }
 void errorSaltoCondicion(char *condicion,char *operador){
-    //printf("Error semantico por condicion: %s en el: %s en linea: %d\n",condicion,operador,yylineno);
+    SetError("Error Semantico por Condicion",operador,condicion);
+    
 }
