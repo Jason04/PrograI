@@ -62,7 +62,6 @@ DeclaracionVariable:		DECLARAR ID FINL {setVariable($2,alcance);}
 				; 
 ListaFunciones:                FUNCION ID PARENTESISABIERTO ID {setParametro($4,alcance,$2);setFuncion($4,alcance,$2);}PARENTESISCERRADO LLAVEABIERTA {alcance="i";}ListaVariables DeclaracionAsignacion RETORNAR ID FinFuncion
                                {alcance="o";}
-                               |error FINL {yyerrok;}
                                ;
 
 FinFuncion:                    LLAVECERRADA | FINL LLAVECERRADA;    
