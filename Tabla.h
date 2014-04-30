@@ -28,6 +28,10 @@ struct nodeTable* newNode(int line, char* isParameter, char* name
         , char* function, char* isUsed, char* parameter,
         char* alcance, int value);
 
+
+
+void escribirTXT(nodeTable* head);
+
 /**
  * Insertar nodo al inicio de la lista
  * @param head
