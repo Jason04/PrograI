@@ -65,7 +65,7 @@ main()
 
     //    escribirHTML(a);
 
-    escribirTXT(current);
+    escribirTablaTXT(current);
     //*********************************************************
    // printf("%d",strlen("                "));
 
@@ -83,10 +83,11 @@ main()
     //    printTable(current);
     //*********************************************************
     escribirHTML(comentario);
-    printTable(manejoErrores);
+ 
+    escribirErroresTXT(manejoErrores);
    //*********************************************************
-    
-
+    printTable(manejoErrores);
+//este es mio
 }
 
 void setComentario(char *comment){

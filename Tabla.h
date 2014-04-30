@@ -30,7 +30,7 @@ struct nodeTable* newNode(int line, char* isParameter, char* name
 
 
 
-void escribirTXT(nodeTable* head);
+void escribirTablaTXT(nodeTable* head);
 
 /**
  * Insertar nodo al inicio de la lista
@@ -115,6 +115,26 @@ int getElementLine(nodeTable* head, char* name);
  * @return 
  */
 char* getElementAtrib(nodeTable* head, char* name, char caso);
+
+/**
+ * Permiete escribir la tabla de simbolos en formato xtx.
+ * @param head
+ */
+void escribirTablaTXT(nodeTable* head);
+
+/**
+ * Permiete escribir la tabla de manejo de erroes en formato xtx.
+ * @param head
+ */
+void escribirErroresTXT(nodeTable* head); 
+
+/**
+ * Permite Obtener el largo del un numero
+ * @param value
+ * @return 
+ */
+int get_int_len(int value);
+
 #ifndef TABLA_H
 #define	TABLA_H
 

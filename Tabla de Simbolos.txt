@@ -2,25 +2,26 @@
                                 ********************************************************************************
                                 *                                   Variables                                  *
                                 ********************************************************************************
-                                *  Nombre*        Línea*        ¿Parámetro?*        Función*        ¿Utilizada? 
-                                *  newNum     13      no       NA         no   *     
-                                *  newNum2     12      no       NA         no   *     
-                                *  arg     10      si       prueba         si   *     
-                                *  nuevo2     10      no       NA         no   *     
-                                *  nuevo     9      no       NA         no   *     
-                                *  e     7      no       NA         no   *     
-                                *  q     5      no       NA         no   *     
-                                *  a     4      no       NA         no   *     
-                                *  s2     3      no       NA         no   *     
-                                *  s1     2      no       NA         no   *     
+                                *  Nombre        *Línea        *¿Parámetro?        *Función        *¿Utilizada?*
+                                *  newNum         13                no               NA                 no     *     
+                                *  newNum2        12                no               NA                 no     *     
+                                *  arg            10                si               prueba             si     *     
+                                *  nuevo2         10                no               NA                 no     *     
+                                *  nuevo          9                 no               NA                 no     *     
+                                *  e              7                 no               NA                 no     *     
+                                *  q              5                 no               NA                 no     *     
+                                *  a              4                 no               NA                 no     *     
+                                *  s2             3                 no               NA                 no     *     
+                                *  s1             2                 no               NA                 no     *     
                                 ********************************************************************************
                                 *                                    Funciones                                 *
                                 ********************************************************************************
-                                 * Nombre*         Línea*        Parámetro          ¿Utilizada?*
-                                     prueba     10      arg       no                                ********************************************************************************
+                                *  Nombre         *Línea        *Parámetro         *¿Utilizada?                *
+                                *  prueba          10            arg                   no                      *     
+                                ********************************************************************************
                                 *                                   Etiquetas                                  *
                                 ********************************************************************************
-                                *  Nombre*        Línea*        ¿Utilizada?*
-                                     OSCAR     22       no
-
+                                *  Nombre                              *Línea        *¿Utilizada?              *
+                                *  OSCAR                                 22              no                    *     
+                                ********************************************************************************
 
