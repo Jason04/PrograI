@@ -16,14 +16,15 @@ extern int yylex();
 struct nodeTable* current;
 extern FILE *yyin;
 extern int yylineno;
-extern void setVariable(char *variable, char *alcance, int linea);
-extern void setParametro(char *variable, char *alcance, int linea, char* funcion);
-extern void setFuncion(char *variable, char *alcance, int linea, char* funcion);
+extern void setVariable(char *variable, char *alcance);
+extern void setParametro(char *variable, char *alcance,char* funcion);
+extern void setFuncion(char *variable, char *alcance,char* funcion);
 extern int buscaValor(char *variable);
 extern void asignarValor(char *variable,char *alcance,int valor);
-extern void setEtiqueta(char *variable, char *alcance, int linea);
+extern void setEtiqueta(char *variable, char *alcance);
 extern void marcarUtilizada(char *variable,char *alcance);
 extern int fueDeclarada(char *variable, char *alcance);
+
 main()
 {
     
@@ -87,27 +88,27 @@ main()
    //*********************************************************
     
 }
-void setVariable(char *variable, char *alcance, int linea){
+void setVariable(char *variable, char *alcance){
     if(current==NULL){
-        current=newNode(linea, "no", variable, "NA", "no", "NA", alcance,-1);}
-    else{current=addFront(current,linea, "no", variable, "NA", "no", "NA", alcance,-1);}
+        current=newNode(yylineno, "no", variable, "NA", "no", "NA", alcance,-1);}
+    else{current=addFront(current,yylineno, "no", variable, "NA", "no", "NA", alcance,-1);}
     //printTable(current);
     //printf("se declaro un ID: %s con alcance de: %s en la linea: %d\n",variable,alcance,yylineno);
 }
-void setParametro(char *variable, char *alcance, int linea, char* funcion){
+void setParametro(char *variable, char *alcance,char* funcion){
     if(current==NULL){
-    current=newNode(linea, "si", variable, funcion, "si", "NA", alcance,-1);}
-    else{current=addFront(current,linea, "si", variable, funcion, "si", "NA", alcance,-1);}
+    current=newNode(yylineno, "si", variable, funcion, "si", "NA", alcance,-1);}
+    else{current=addFront(current,yylineno, "si", variable, funcion, "si", "NA", alcance,-1);}
     //printTable(current);
     //printf("se declaro un ID: %s con alcance de: %s\n",variable,alcance);
 }
-void setFuncion(char *variable, char *alcance, int linea, char* funcion){
-    current=addFront(current,linea, "no", funcion, "NA", "no", variable, alcance,-1);
+void setFuncion(char *variable, char *alcance,char* funcion){
+    current=addFront(current,yylineno, "no", funcion, "NA", "no", variable, alcance,-1);
     //printTable(current);
     //printf("se declaro un ID: %s con alcance de: %s\n",variable,alcance);
 }
-void setEtiqueta(char *variable, char *alcance, int linea){
-    current=addFront(current,linea, "no", variable, "NA", "no", "NA", alcance,-1);
+void setEtiqueta(char *variable, char *alcance){
+    current=addFront(current,yylineno, "no", variable, "NA", "no", "NA", alcance,-1);
     //printTable(current);
     //printf("se declaro una etiqueta: %s con alcance de: %s\n",variable,alcance);
 }
