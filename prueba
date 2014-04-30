@@ -4,8 +4,9 @@ declarar a
 declarar q
 baca
 declarar e
-declarar nuevos
-declarar z
+/***/
+declarar nuevo
+declarar nuevo2
 funcion prueba(arg){
         declarar newNum2 
         declarar newNum

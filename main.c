@@ -10,11 +10,17 @@
 #include "y.tab.h"
 #include <string.h>
 #include "Tabla.h"
-extern char *alcance="o";
+#include "lista.h"
+extern char *alcance = "o";
 extern int yyparse();
 extern int yylex();
 struct nodeTable* current;
 extern FILE *yyin;
+
+extern void setAlcance(char *variable, char *alcance);
+
+
+
 extern int yylineno;
 extern void setVariable(char *variable, char *alcance);
 extern void setParametro(char *variable, char *alcance,char* funcion);
@@ -27,49 +33,45 @@ extern int fueDeclarada(char *variable, char *alcance);
 
 main()
 {
+
+  
+
+
+
+    //**********************insertar en la lista******************
+    nodeS* a = newNode1("Comentario");
+    a = addFront1(a, "/**Comentario2");
+    a = addFront1(a, "/@Comentario3");
+    a = addFront1(a, "Comentario4");
+    a = addFront1(a, "Comentario5");
+    a = addFront1(a, "Comentario6");
+    a = addFront1(a, "Comentario7");
+    a = addFront1(a, "Comentario8");
+    a = addFront1(a, "Comentario9");
+    a = addFront1(a, "/*Comentario10?**");
+    a = addFront1(a, "Comentario11");
+    a = addFront1(a, "@**Comentario12");
+
+
     
-//    current = newNode(7,"no","prueba","funcion","no","dedeede","o",-1);
-//    
-//    asignarValor("prueba","o",34);
-//    printTable(current);
-//    char *a= "aaa";
-//    char* aa="aaa";
-//    printf("%d",(strcmp(a, aa) == 0) && 1 == 1);
-    /*
-    printf("Escriba algo seguido de enter. Digite 'pare' or 'PARE' para terminar.\n");
-    printf("\n");*/
-    // Start the parser
-/* Aqui se compilan el analizador lexico(lex) y el analizador sintactico y se 
-   unen para crear un ejecutable bas.exe */
-/* yyparse() corre el compilador */
-    
-    /*yyleng();
-    yylex();
-    return 0;*/
-    //******************************tabla********************
-    /**
-    //Crear la tabla
-    nodeTable* test = newNode(1, "no", "var1", "NA", "si", "NA", "i",12);
-    
-    //insertar en la tabla
-    test = addFront(test, 2, "no", "var2", "NA", "si", "NA", "o",23);
-    test = addFront(test, 2, "no", "var3", "NA", "si", "NA", "o",23);
-            
-    updateIsUsed(test,"var1","i","no");
-    
-    //Imprimer tabla
-    printTable(test);**/
-    
-//    //obtener valor
-//    printf("%d",getElementValue(test,"var1"));
-//    
-//    //obtener linea
-//    printf("%d",getElementLine(test,"var1"));
-//    
-    //obtener atributo
-    /**char atributo =  'A';
-    printf("%s",getElementAtrib(test,"var1",atributo));**/
-    
+
+
+    //*********************************************************
+
+
+
+
+    //    yyin = fopen("prueba","r");
+    //   
+    //    do{
+    //       yyparse();
+    //      // yylex();
+    //    }  while(!feof(yyin));
+    //    fclose(yyin);
+
+    escribirHTML(a);
+
+
    //*********************************************************
     
     
@@ -129,8 +131,12 @@ void marcarUtilizada(char *variable,char *alcance){
 }
 int fueDeclarada(char *variable, char *alcance){
     return estaDeclarada(current,variable,alcance);
+
 }
 
+void setAlcance(char *variable, char *alcance) {
+    printf("se declaro un ID: %s con alcance de: %s\n", variable, alcance);
+}
 
 
 
