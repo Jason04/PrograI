@@ -3,7 +3,7 @@
                                 *                                   Variables                                  *
                                 ********************************************************************************
                                 *  Nombre        *Línea        *¿Parámetro?        *Función        *¿Utilizada?*
-                                *  newNum         13                no               NA                 no     *     
+                                *  newNum         13                no               NA                 si     *     
                                 *  newNum2        12                no               NA                 no     *     
                                 *  arg            10                si               prueba             si     *     
                                 *  nuevo2         10                no               NA                 no     *     
@@ -22,6 +22,6 @@
                                 *                                   Etiquetas                                  *
                                 ********************************************************************************
                                 *  Nombre                              *Línea        *¿Utilizada?              *
-                                *  OSCAR                                 22              no                    *     
+                                *  OSCAR                                 22              si                    *     
                                 ********************************************************************************
 

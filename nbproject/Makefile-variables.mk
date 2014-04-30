@@ -9,11 +9,11 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux-x86
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux-x86
-CND_ARTIFACT_NAME_Debug=primerprogracompi2
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/primerprogracompi2
+CND_ARTIFACT_NAME_Debug=prograi
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/prograi
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Debug=primerprogracompi2.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/primerprogracompi2.tar
+CND_PACKAGE_NAME_Debug=prograi.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/prograi.tar
 #
 # include compiler specific variables
 #

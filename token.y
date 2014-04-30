@@ -61,7 +61,7 @@ DeclaracionVariable:		DECLARAR ID FINL {setVariable($2,alcance);}
                                 |error FINL {yyerrok;}
 				|FINL
 				; 
-ListaFunciones:                FUNCION ID PARENTESISABIERTO ID {setParametro($4,alcance,$2);setFuncion($4,alcance,$2);}PARENTESISCERRADO LLAVEABIERTA {alcance="i";}ListaVariables DeclaracionAsignacion RETORNAR ID FinFuncion
+ListaFunciones:                FUNCION ID PARENTESISABIERTO ID {setParametro($4,alcance,$2);setFuncion($4,alcance,$2);}PARENTESISCERRADO LLAVEABIERTA {alcance="i";}ListaVariables DeclaracionAsignacion RETORNAR ID{marcarUtilizada(yytext,"i");} FinFuncion
                                {alcance="o";}
                                ;
 
@@ -127,7 +127,7 @@ DeclaracionIteracion:		MIENTRAS PARENTESISABIERTO ExpresionCondicion {if($3 == 0
 
 DeclaracionEtiqueta:		ETIQUETA ID  {setEtiqueta($2,alcance);} FINL;
 
-DeclaracionSaltoEtiqueta:	IR ID {if(fueDeclarada($2,alcance)==0){erroresSemanticos("la etiqueta no existe",$2);};} FINL
+DeclaracionSaltoEtiqueta:	IR ID {if(fueDeclarada($2,alcance)==0){erroresSemanticos("la etiqueta no existe",$2);};if(fueDeclarada($2,alcance)==1){marcarUtilizada(yytext,"o");};} FINL
                                 ;
 
 DeclaracionImprimir:		IMPRIMIR ID {if(fueDeclarada($2,alcance)==0){erroresSemanticos("la variable no existe",$2);};} FINL;
